@@ -16,6 +16,25 @@
     flex-wrap: wrap;
 }
 
+.title-cars-container{
+    background-image: url('../imgs/bg1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center ;
+    width:100%;
+    height:200px;
+}
+
+.title-cars{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height: 100%;
+    background-color: rgba(6, 6, 6, 0.813);
+    
+}
+
 
 @media (width <= 700px){
     .cars {

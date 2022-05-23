@@ -54,14 +54,14 @@ function Car({ id, marque, model, price, quantity, img }) {
       onMouseLeave={mouseOutCar}
       className="car"
     >
-      <h1 className="title-card">
+      <h2 className="title-card">
         {marque} {model}
-      </h1>
+      </h2>
       <p>Ou similaire</p>
+      <img src={img} alt={`${marque}_${model}`} className={`${zoomImgHover} img-car`} />
       {/* <h4>{price}€/jour</h4> */}
-      <img src={img} alt="pas dispo" className={`${zoomImgHover} img-car`} />
 
-      <label htmlFor="start">Départ</label>
+      {/* <label htmlFor="start">Départ</label>
       <input
         type="date"
         id="start"
@@ -80,7 +80,7 @@ function Car({ id, marque, model, price, quantity, img }) {
         onChange={changeDate}
       />
 
-      <button onClick={validForm}>Louer</button>
+      <button onClick={validForm}>Louer</button> */}
     </div>
   );
 }

@@ -9,7 +9,9 @@ function Products() {
     
     return (
         <div className="Products">
-            <h1>Véhicules</h1>
+            <div className='title-cars-container'>
+                <h1 className='title-cars'>Nos véhicules</h1>
+            </div>
                 <div className="cars">
                     {cars.map (car => {
                     return  <Car 

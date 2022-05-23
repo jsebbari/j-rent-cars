@@ -7,7 +7,7 @@ function Navbar() {
         <>
          <nav>
              <NavLink activeclassname="active"  className ="link" to="/" >Accueil</NavLink>
-             <NavLink activeclassname="active" className="link" to="/vehicules">Véhicules</NavLink>
+             <NavLink activeclassname="active" className="link" to="/vehicules">Nos véhicules</NavLink>
              <NavLink activeclassname="active" className="link" to="/contact">Contact</NavLink>
          </nav>
          
