@@ -1,5 +1,5 @@
 import mercedesClassA from '../imgs/mercedesclassea.png'
-import mercedesClassE from '../imgs/mercedesclassee.png'
+import mercedesClassC from '../imgs/mercedesclassec.png'
 import vwGolf8 from '../imgs/vwGolf8.png'
 import vwPolo from '../imgs/vwPolo.png'
 import bmwSerie5 from '../imgs/bmwserie5.png'
@@ -10,9 +10,19 @@ import lamborghiniAventador from"../imgs/lamborghiniaventador.png"
 import rangeRoverVelar from"../imgs/rangerovervelar.png"
 import audiQ7 from"../imgs/audiq7.png"
 import bmwX5 from"../imgs/bmwx5.png"
+import mercedes190D from"../imgs/190.png"
 
 
 export const cars = [
+    
+    {
+        id:0,
+        marque: "Mercedes",
+        model: "190D (roule à l'air)",
+        price: "Gratuit",
+        quantity:0,
+        img: mercedes190D
+    },
     {
         id:1,
         marque: "Mercedes",
@@ -24,10 +34,10 @@ export const cars = [
     {
         id:2,
         marque: "Mercedes",
-        model: "Classe E",
+        model: "Classe C coupé",
         price: 30,
         quantity:0,
-        img: mercedesClassE
+        img: mercedesClassC
     },
     {
         id:3,
