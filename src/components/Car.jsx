@@ -57,7 +57,7 @@ function Car({ id, marque, model, price, quantity, img }) {
       <h2 className="title-card">
         {marque} {model}
       </h2>
-      <p>Ou similaire</p>
+      <p>{price}€/jour</p>
       <img src={img} alt={`${marque}_${model}`} className={`${zoomImgHover} img-car`} />
       {/* <h4>{price}€/jour</h4> */}
 

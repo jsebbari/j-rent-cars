@@ -1,12 +1,12 @@
 .Products {
     width:100%;
     min-height:100vh;
-    padding-top:4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: rgb(13, 14, 15);
     color:antiquewhite;
+    padding-bottom:3rem;
 }
 
 .cars {
@@ -17,12 +17,11 @@
 }
 
 .title-cars-container{
-    background-image: url('../imgs/bg1.jpg');
-    background-repeat: no-repeat;
+    background: url('../imgs/bg-cars.jpg') no-repeat fixed;
     background-size: cover;
-    background-position:center ;
+    background-position:bottom ;
     width:100%;
-    height:200px;
+    height:300px;
 }
 
 .title-cars{
@@ -41,4 +40,10 @@
         padding:0;
 
     } 
+
+    .title-cars-container{
+        background: url('../imgs/bg-cars-mobile.jpg') scroll;
+        background-position:center ;
+       
+    }
 }

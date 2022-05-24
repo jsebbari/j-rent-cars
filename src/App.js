@@ -1,5 +1,5 @@
 import { Routes, Route, Link } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Navigation from "./components/Navigation";
 import Products from "./screens/Products";
 import Home from "./screens/Home";
 import Contact from "./screens/Contact";
@@ -10,7 +10,7 @@ function App() {
 
 
     <div className="App">
-        <Navbar/>
+        <Navigation/>
          <Routes>
               <Route exact path=  "/" element={<Home />}/> 
              <Route exact path=  "vehicules" element={<Products />} />
