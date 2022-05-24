@@ -96,7 +96,7 @@ export const cars = [
     {
         id:11,
         marque: "Bmw",
-        model: "X6",
+        model: "X5",
         price: 40,
         quantity:0,
         img:bmwX5
