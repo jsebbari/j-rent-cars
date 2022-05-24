@@ -4,9 +4,12 @@ import vwGolf8 from '../imgs/vwGolf8.png'
 import vwPolo from '../imgs/vwPolo.png'
 import bmwSerie5 from '../imgs/bmwserie5.png'
 import bmwSerie1 from '../imgs/bmwserie1.png'
-
 import audiA3 from"../imgs/audia3.png"
 import audiA7 from"../imgs/audia7.png"
+import lamborghiniAventador from"../imgs/lamborghiniaventador.png"
+import rangeRoverVelar from"../imgs/rangerovervelar.png"
+import audiQ7 from"../imgs/audiq7.png"
+import bmwX5 from"../imgs/bmwx5.png"
 
 
 export const cars = [
@@ -27,7 +30,7 @@ export const cars = [
         img: mercedesClassE
     },
     {
-        id:4,
+        id:3,
         marque: "Volswagen",
         model: "Polo",
         price: 15,
@@ -35,7 +38,7 @@ export const cars = [
         img: vwPolo
     },
     {
-        id:3,
+        id:4,
         marque: "Volswagen",
         model: "Golf 8",
         price: 30,
@@ -73,6 +76,38 @@ export const cars = [
         price: 30,
         quantity:0,
         img:bmwSerie5
+    },
+    {
+        id:9,
+        marque: "Range Rover",
+        model: "Velar",
+        price: 40,
+        quantity:0,
+        img:rangeRoverVelar
+    },
+    {
+        id:10,
+        marque: "Audi",
+        model: "Q7",
+        price: 40,
+        quantity:0,
+        img:audiQ7
+    },
+    {
+        id:11,
+        marque: "Bmw",
+        model: "X6",
+        price: 40,
+        quantity:0,
+        img:bmwX5
+    },
+    {
+        id:12,
+        marque: "Lamborghini",
+        model: "Aventador",
+        price: 50,
+        quantity:0,
+        img:lamborghiniAventador
     },
 
 

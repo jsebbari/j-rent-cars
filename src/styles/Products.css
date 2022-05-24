@@ -42,7 +42,7 @@
     } 
 
     .title-cars-container{
-        background: url('../imgs/bg-cars-mobile.jpg') scroll;
+        background: url('../imgs/bg-cars-mobile.jpg') ;
         background-position:center ;
        
     }
