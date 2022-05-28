@@ -1,8 +1,7 @@
 import { useState} from "react";
-import {Link,NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
+import OutsideClickHandler from 'react-outside-click-handler';
 import "../styles/Navigation.css";
-
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAlignCenter,
@@ -10,9 +9,20 @@ import {
   faClose,
 } from "@fortawesome/free-solid-svg-icons";
 
+
+
+
+
+
 const Navigation = () => {
+
+// ______________ states _____________ 
+
   const [showNavbar, setShowNavbar] = useState(false);
   const [mouseHoverIcon, setMouseHoverIcon] = useState(false);
+
+
+// ______________ functions _____________ 
 
   const handleShowNav = () => {
     setShowNavbar(!showNavbar);
@@ -49,28 +59,36 @@ const Navigation = () => {
       onMouseLeave={mouseOutIcon}
     />
   );
+  
   return (
-    <div className="Navigation">
-      {!mouseHoverIcon ? navIcon : navIconHover}
+
+    <OutsideClickHandler
+      onOutsideClick={() => {
+      showNavbar&&setShowNavbar(false);
+    }}
+  >
+      <div className="Navigation" >
+        {!mouseHoverIcon ? navIcon : navIconHover}
 
 
-      <nav className={showNav} onClick={handleShowNav}>
-        {showNavbar && (
-          <FontAwesomeIcon
-            size="2xl"
-            icon={faClose}
-            color="#F6F6F6"
-            className="icon-nav close-icon-nav"
-            onClick={handleShowNav}
-          />
-        )}
+        <nav className={showNav} onClick={handleShowNav}>
+          {showNavbar && (
+            <FontAwesomeIcon
+              size="2xl"
+              icon={faClose}
+              color="#F6F6F6"
+              className="icon-nav close-icon-nav"
+              onClick={handleShowNav}
+            />
+          )}
 
-       
-              <NavLink activeclassname="active"  className ="nav-item" to="/" >Accueil</NavLink>
-             <NavLink activeclassname="active" className="nav-item" to="/vehicules">Nos véhicules</NavLink>
-             <NavLink activeclassname="active" className="nav-item" to="/contact">Contact</NavLink>
-          </nav>
-    </div>
+        
+                <NavLink activeclassname="active"  className ="nav-item" to="/" >Accueil</NavLink>
+              <NavLink activeclassname="active" className="nav-item" to="/vehicules">Nos véhicules</NavLink>
+              <NavLink activeclassname="active" className="nav-item" to="/contact">Contact</NavLink>
+            </nav>
+      </div>
+    </OutsideClickHandler>
   );
 };
 

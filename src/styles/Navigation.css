@@ -39,7 +39,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: all .4s ease-out;
+    transition: all .2s ease-out;
     display: flex;    
 }
 
@@ -54,7 +54,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: all .4s ease-in;
+    transition: all .2s ease-in;
     
 }
 
