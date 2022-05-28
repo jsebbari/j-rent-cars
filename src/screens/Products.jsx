@@ -1,4 +1,3 @@
-import {useState} from 'react'
 import "../styles/Products.css"
 import Car from '../components/Car'
 import {cars} from '../datas/cars'

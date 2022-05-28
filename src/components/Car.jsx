@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import ModalCar from './ModalCar'
 import "../styles/Car.css";
-import OutsideClickHandler from 'react-outside-click-handler';
-import Mod from './Mod'
+
 
 function Car({ id, marque, model, price, quantity, img}) {
 
@@ -10,10 +9,16 @@ function Car({ id, marque, model, price, quantity, img}) {
 
   const [tripDates, setTripDates] = useState({});
   const [carHover, setCarHover] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
+ 
 
   
+  const [fullscreen, setFullscreen] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
+  function handleShowModal(breakpoint) {
+    setFullscreen(breakpoint);
+    setShowModal(true);
+  }
   
   
 
@@ -44,9 +49,7 @@ function Car({ id, marque, model, price, quantity, img}) {
     setCarHover(false);
   };
 
-  const handleOpenModal = ()=> {
-      setOpenModal(true)
-  }
+ 
 
 
 
@@ -56,8 +59,9 @@ function Car({ id, marque, model, price, quantity, img}) {
 
 
   return (
+    <>
     <div
-          onClick={handleOpenModal}
+          onClick={() => handleShowModal(true)}
           onMouseEnter={carHoverHandler}
           onMouseLeave={mouseOutCar}
           className="car"
@@ -66,19 +70,11 @@ function Car({ id, marque, model, price, quantity, img}) {
         {marque} {model}
       </h3>
       <p>{price}€/jour</p>
+      <img src={img} alt={`${marque}_${model}`} className={`${zoomImgHover} img-car`} />
      
-        
-        
-    {/* <OutsideClickHandler
-      onOutsideClick={() => {
-        openModal&&setOpenModal(false);
-      }}
-      >
-        {openModal&&<ModalCar marque={marque} model={model}/>}
-      </OutsideClickHandler> */}
-      <Mod img={img} marque={marque} model={model} zoomImgHover= {zoomImgHover}/>
     </div>
-
+      <ModalCar img={img} showModal={showModal} setShowModal={setShowModal} fullscreen={fullscreen} marque={marque} model={model} />
+      </>
   );
 }
 

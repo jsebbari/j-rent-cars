@@ -1,14 +1,18 @@
+import { Modal } from "react-bootstrap";
+import CarouselCar from './CarouselCar'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { useState } from 'react';
-import '../styles/ModalCar.css'
+export default function ModalCar({showModal,setShowModal, fullscreen, marque,model, img}) {
+  
 
-
-
-export default function ModalCar({marque, model}) {
-
-  return (
-    <div className='ModalCar' >
-        <h1>{marque} {model}</h1>
-    </div>
-  );
-}
+    return (
+      <>
+        <Modal show={showModal} fullscreen={fullscreen} onHide={() => setShowModal(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>{marque} {model}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body><CarouselCar img={img}/></Modal.Body>
+        </Modal>
+      </>
+    );
+  }
