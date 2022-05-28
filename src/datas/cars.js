@@ -26,7 +26,7 @@ export const cars = [
     {
         id:2,
         marque: "Mercedes",
-        model: "Classe C coupé",
+        model: "Classe C",
         price: 30,
         quantity:0,
         img: mercedesClassC

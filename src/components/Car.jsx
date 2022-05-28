@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import ModalCar from './ModalCar'
 import "../styles/Car.css";
 import OutsideClickHandler from 'react-outside-click-handler';
+import Mod from './Mod'
 
 function Car({ id, marque, model, price, quantity, img}) {
 
@@ -61,21 +62,21 @@ function Car({ id, marque, model, price, quantity, img}) {
           onMouseLeave={mouseOutCar}
           className="car"
     >
-      <h2 className="title-card">
+      <h3 className="title-card">
         {marque} {model}
-      </h2>
+      </h3>
       <p>{price}€/jour</p>
-      <img src={img} alt={`${marque}_${model}`} className={`${zoomImgHover} img-car`} />
+     
         
         
-    <OutsideClickHandler
+    {/* <OutsideClickHandler
       onOutsideClick={() => {
         openModal&&setOpenModal(false);
       }}
       >
         {openModal&&<ModalCar marque={marque} model={model}/>}
-      </OutsideClickHandler>
-      
+      </OutsideClickHandler> */}
+      <Mod img={img} marque={marque} model={model} zoomImgHover= {zoomImgHover}/>
     </div>
 
   );
