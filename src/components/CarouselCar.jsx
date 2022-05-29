@@ -21,7 +21,7 @@ export default function CarouselCar({img}) {
   <Carousel.Item>
     <img
       className="img-carousel"
-      src='/interior-car.jpg'
+      src='/classea-1.jpg'
       alt="Second slide"
     />
 

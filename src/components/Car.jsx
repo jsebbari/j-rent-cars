@@ -3,7 +3,7 @@ import ModalCar from './ModalCar'
 import "../styles/Car.css";
 
 
-function Car({ id, marque, model, price, quantity, img}) {
+function Car({ id, marque, model, price, options, img}) {
 
 // ______________ states _____________ 
 
@@ -73,7 +73,7 @@ function Car({ id, marque, model, price, quantity, img}) {
       <img src={img} alt={`${marque}_${model}`} className={`${zoomImgHover} img-car`} />
      
     </div>
-      <ModalCar img={img} showModal={showModal} setShowModal={setShowModal} fullscreen={fullscreen} marque={marque} model={model} />
+      <ModalCar img={img} showModal={showModal} setShowModal={setShowModal} fullscreen={fullscreen} marque={marque} model={model} options={options} />
       </>
   );
 }

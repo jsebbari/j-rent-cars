@@ -20,7 +20,7 @@ export const cars = [
         marque: "Mercedes",
         model: "Classe A",
         price: 15,
-        quantity:0,
+        options:["Gps","5 portes, Climatisation, Automatique, 2 Bagages "],
         img: mercedesClassA
     },
     {
@@ -28,7 +28,7 @@ export const cars = [
         marque: "Mercedes",
         model: "Classe C",
         price: 30,
-        quantity:0,
+        options:["Gps","3 portes, Climatisation, Automatique, 2 Bagages "],
         img: mercedesClassC
     },
     {
@@ -36,7 +36,7 @@ export const cars = [
         marque: "Volswagen",
         model: "Polo",
         price: 15,
-        quantity:0,
+        options:["Gps","5 portes, Climatisation, Automatique, 2 Bagages "],
         img: vwPolo
     },
     {
@@ -44,7 +44,7 @@ export const cars = [
         marque: "Volswagen",
         model: "Golf 8",
         price: 30,
-        quantity:0,
+        options:["Gps","5 portes, Climatisation, Automatique, 2 Bagages "],
         img: vwGolf8
     },
     {
@@ -52,7 +52,7 @@ export const cars = [
         marque: "Audi",
         model: "A3",
         price: 15,
-        quantity:0,
+        options:["Gps","5 portes, Climatisation, Automatique, 2 Bagages "],
         img: audiA3
     },
     {
@@ -60,7 +60,7 @@ export const cars = [
         marque: "Audi",
         model: "A7",
         price: 30,
-        quantity:0,
+        options:["Gps","5 portes, Climatisation, Automatique, 2 Bagages "],
         img:audiA7
     },
     {
@@ -68,7 +68,7 @@ export const cars = [
         marque: "Bmw",
         model: "Série 1",
         price: 15,
-        quantity:0,
+        options:["Gps","5 portes, Climatisation, Automatique, 2 Bagages "],
         img:bmwSerie1
     },
     {
@@ -76,7 +76,7 @@ export const cars = [
         marque: "Bmw",
         model: "Série 5",
         price: 30,
-        quantity:0,
+        options:["Gps","5 portes, Climatisation, Automatique, 2 Bagages "],
         img:bmwSerie5
     },
     {
@@ -84,7 +84,7 @@ export const cars = [
         marque: "Range Rover",
         model: "Velar",
         price: 40,
-        quantity:0,
+        options:["Gps","5 portes, Climatisation, Automatique, 2 Bagages "],
         img:rangeRoverVelar
     },
     {
@@ -92,7 +92,7 @@ export const cars = [
         marque: "Audi",
         model: "Q7",
         price: 40,
-        quantity:0,
+        options:["Gps","5 portes, Climatisation, Automatique, 2 Bagages "],
         img:audiQ7
     },
     {
@@ -100,7 +100,7 @@ export const cars = [
         marque: "Bmw",
         model: "X5",
         price: 40,
-        quantity:0,
+        options:["Gps","5 portes, Climatisation, Automatique, 2 Bagages "],
         img:bmwX5
     },
     {
@@ -108,7 +108,7 @@ export const cars = [
         marque: "Lamborghini",
         model: "Aventador",
         price: 50,
-        quantity:0,
+        options:["Gps","3 portes, Climatisation, Automatique, 1 Bagages "],
         img:lamborghiniAventador
     },
 

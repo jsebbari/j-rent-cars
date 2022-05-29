@@ -21,7 +21,7 @@ function Products() {
                             marque={car.marque}
                             model={car.model}
                             price={car.price}
-                            quantity={car.quantity}
+                            options={car.options}
                             img= {car.img}
                         />
                     })}

@@ -1,15 +1,33 @@
-.ModalCar {
-    position: fixed;
-    z-index:300;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 95%;
-    height:80%;
-    background-color: rgb(245, 242, 242);
-    color:black;
-    
-    
-    box-shadow: 24;
 
+
+.modal-body {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    
+    padding-top:2rem;
+
+}
+
+
+
+.btn-close{
+ background-color: rgb(255, 255, 255);
+ position:fixed;
+ z-index:500;
+ top:.5rem;
+ right:.5rem;
+ padding:.5rem;
+}
+
+.carousel-indicators button {
+    background-color: rgb(205, 171, 126) !important;
+}
+
+@media (width <= 900px) {
+
+    .modal-body {
+        padding:0;
+    }
+    
 }
