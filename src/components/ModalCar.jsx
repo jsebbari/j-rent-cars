@@ -3,7 +3,7 @@ import CarouselCar from './CarouselCar'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/ModalCar.css'
 
-export default function ModalCar({showModal,setShowModal, fullscreen, marque,model, img}) {
+export default function ModalCar({showModal,setShowModal, fullscreen, marque,model,img}) {
   
 
     return (
@@ -11,7 +11,7 @@ export default function ModalCar({showModal,setShowModal, fullscreen, marque,mod
         <Modal show={showModal} fullscreen={fullscreen} onHide={() => setShowModal(false)}  >
         <CloseButton variant='white' onClick={() => setShowModal(false)}  />
           <Modal.Body   style={{backgroundColor:"rgb(13, 14, 15)"}}>
-          <CarouselCar img={img}/>
+          <CarouselCar marque={marque} model={model}/>
           
           </Modal.Body>
           

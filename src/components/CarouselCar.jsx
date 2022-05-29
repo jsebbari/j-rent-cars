@@ -3,26 +3,35 @@ import { Carousel } from "react-bootstrap"
 
 import "../styles/CarouselCar.css"
 
-export default function CarouselCar({img}) {
+export default function CarouselCar({marque,model}) {
+  const withoutSpace = (mod)=> {
+    mod.toLowerCase()
+    let newModelName=  mod.replace(' ', '-')
+      return newModelName
+  }
+
+
+
   return (
    
 <Carousel controls={false}>
 
-  <Carousel.Item>
 
-    <img
+  <Carousel.Item>
+  <img
       className="img-carousel"
-      src='/interior-car.jpg'
-      alt="First slide"
+      src={`/imgs-car/${withoutSpace(model)}.jpg`}
+      alt="Second slide"
     />
+   
 
   </Carousel.Item>
 
   <Carousel.Item>
-    <img
+  <img
       className="img-carousel"
-      src='/classea-1.jpg'
-      alt="Second slide"
+      src={`/imgs-car/interior-${withoutSpace(marque)}.jpg`}
+      alt="First slide"
     />
 
     

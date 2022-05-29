@@ -8,7 +8,7 @@ import audiA3 from"../imgs/audia3.png"
 import audiA7 from"../imgs/audia7.png"
 import lamborghiniAventador from"../imgs/lamborghiniaventador.png"
 import rangeRoverVelar from"../imgs/rangerovervelar.png"
-import audiQ7 from"../imgs/audiq7.png"
+import classeG from"../imgs/classeg.png"
 import bmwX5 from"../imgs/bmwx5.png"
 
 
@@ -89,11 +89,11 @@ export const cars = [
     },
     {
         id:10,
-        marque: "Audi",
-        model: "Q7",
+        marque: "Mercedes",
+        model: "Classe G",
         price: 40,
         options:["Gps","5 portes, Climatisation, Automatique, 2 Bagages "],
-        img:audiQ7
+        img:classeG
     },
     {
         id:11,
