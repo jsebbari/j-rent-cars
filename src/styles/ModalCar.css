@@ -2,10 +2,8 @@
 
 .modal-body {
     display:flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top:2rem;
 
 }
 
@@ -24,11 +22,21 @@
     background-color: rgb(205, 171, 126) !important;
 }
 
+@media (width <= 1270px) {
+
+    .modal-body {
+        flex-direction: column;
+        
+    }
+    
+}
+
 @media (width <= 900px) {
 
     .modal-body {
         padding:0;
         justify-content: flex-start;
+        
     }
     
 }

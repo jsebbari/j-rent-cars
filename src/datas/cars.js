@@ -10,8 +10,15 @@ import lamborghiniAventador from"../imgs/lamborghiniaventador.png"
 import rangeRoverVelar from"../imgs/rangerovervelar.png"
 import classeG from"../imgs/classeg.png"
 import bmwX5 from"../imgs/bmwx5.png"
+import { GiCarDoor, GiGps } from 'react-icons/gi'
+import { FaRegSnowflake } from 'react-icons/fa'
+import { MdLuggage } from 'react-icons/md'
 
 
+const doorIcon = <GiCarDoor size={30}/> 
+const gpsIcon = <GiGps size={30} />
+const climIcon = <FaRegSnowflake size={30}/>
+const bagageIcon= <MdLuggage size={30} />
 
 export const cars = [
 
@@ -20,7 +27,7 @@ export const cars = [
         marque: "Mercedes",
         model: "Classe A",
         price: 15,
-        options:["Gps","5 portes, Climatisation, Automatique, 2 Bagages "],
+        options:[{nameOpt:'Gps', icon:gpsIcon},{nameOpt:"5 portes", icon:doorIcon}, {nameOpt:"Climatisation", icon:climIcon}, {nameOpt:"2 Bagages", icon:bagageIcon}],
         img: mercedesClassA
     },
     {
@@ -28,7 +35,7 @@ export const cars = [
         marque: "Mercedes",
         model: "Classe C",
         price: 30,
-        options:["Gps","3 portes, Climatisation, Automatique, 2 Bagages "],
+        options:[{nameOpt:'Gps', icon:gpsIcon},{nameOpt:"3 portes", icon:doorIcon}, {nameOpt:"Climatisation", icon:climIcon}, {nameOpt:"2 Bagages", icon:bagageIcon}],
         img: mercedesClassC
     },
     {
@@ -36,7 +43,7 @@ export const cars = [
         marque: "Volswagen",
         model: "Polo",
         price: 15,
-        options:["Gps","5 portes, Climatisation, Automatique, 2 Bagages "],
+        options:[{nameOpt:'Gps', icon:gpsIcon},{nameOpt:"5 portes", icon:doorIcon}, {nameOpt:"Climatisation", icon:climIcon}, {nameOpt:"2 Bagages", icon:bagageIcon}],
         img: vwPolo
     },
     {
@@ -44,7 +51,7 @@ export const cars = [
         marque: "Volswagen",
         model: "Golf 8",
         price: 30,
-        options:["Gps","5 portes, Climatisation, Automatique, 2 Bagages "],
+        options:[{nameOpt:'Gps', icon:gpsIcon},{nameOpt:"5 portes", icon:doorIcon}, {nameOpt:"Climatisation", icon:climIcon}, {nameOpt:"2 Bagages", icon:bagageIcon}],
         img: vwGolf8
     },
     {
@@ -52,7 +59,7 @@ export const cars = [
         marque: "Audi",
         model: "A3",
         price: 15,
-        options:["Gps","5 portes, Climatisation, Automatique, 2 Bagages "],
+        options:[{nameOpt:'Gps', icon:gpsIcon},{nameOpt:"5 portes", icon:doorIcon}, {nameOpt:"Climatisation", icon:climIcon}, {nameOpt:"2 Bagages", icon:bagageIcon}],
         img: audiA3
     },
     {
@@ -60,7 +67,7 @@ export const cars = [
         marque: "Audi",
         model: "A7",
         price: 30,
-        options:["Gps","5 portes, Climatisation, Automatique, 2 Bagages "],
+        options:[{nameOpt:'Gps', icon:gpsIcon},{nameOpt:"5 portes", icon:doorIcon}, {nameOpt:"Climatisation", icon:climIcon}, {nameOpt:"2 Bagages", icon:bagageIcon}],
         img:audiA7
     },
     {
@@ -68,7 +75,7 @@ export const cars = [
         marque: "Bmw",
         model: "Série 1",
         price: 15,
-        options:["Gps","5 portes, Climatisation, Automatique, 2 Bagages "],
+        options:[{nameOpt:'Gps', icon:gpsIcon},{nameOpt:"5 portes", icon:doorIcon}, {nameOpt:"Climatisation", icon:climIcon}, {nameOpt:"2 Bagages", icon:bagageIcon}],
         img:bmwSerie1
     },
     {
@@ -76,7 +83,7 @@ export const cars = [
         marque: "Bmw",
         model: "Série 5",
         price: 30,
-        options:["Gps","5 portes, Climatisation, Automatique, 2 Bagages "],
+        options:[{nameOpt:'Gps', icon:gpsIcon},{nameOpt:"5 portes", icon:doorIcon}, {nameOpt:"Climatisation", icon:climIcon}, {nameOpt:"2 Bagages", icon:bagageIcon}],
         img:bmwSerie5
     },
     {
@@ -84,7 +91,7 @@ export const cars = [
         marque: "Range Rover",
         model: "Velar",
         price: 40,
-        options:["Gps","5 portes, Climatisation, Automatique, 2 Bagages "],
+        options:[{nameOpt:'Gps', icon:gpsIcon},{nameOpt:"5 portes", icon:doorIcon}, {nameOpt:"Climatisation", icon:climIcon}, {nameOpt:"2 Bagages", icon:bagageIcon}],
         img:rangeRoverVelar
     },
     {
@@ -92,7 +99,7 @@ export const cars = [
         marque: "Mercedes",
         model: "Classe G",
         price: 40,
-        options:["Gps","5 portes, Climatisation, Automatique, 2 Bagages "],
+        options:[{nameOpt:'Gps', icon:gpsIcon},{nameOpt:"5 portes", icon:doorIcon}, {nameOpt:"Climatisation", icon:climIcon}, {nameOpt:"2 Bagages", icon:bagageIcon}],
         img:classeG
     },
     {
@@ -100,15 +107,15 @@ export const cars = [
         marque: "Bmw",
         model: "X5",
         price: 40,
-        options:["Gps","5 portes, Climatisation, Automatique, 2 Bagages "],
+        options:[{nameOpt:'Gps', icon:gpsIcon},{nameOpt:"5 portes", icon:doorIcon}, {nameOpt:"Climatisation", icon:climIcon}, {nameOpt:"2 Bagages", icon:bagageIcon}],
         img:bmwX5
     },
     {
         id:12,
         marque: "Lamborghini",
         model: "Aventador",
-        price: 50,
-        options:["Gps","3 portes, Climatisation, Automatique, 1 Bagages "],
+        price: 100,
+        options:[{nameOpt:'Gps', icon:gpsIcon},{nameOpt:"3 portes", icon:doorIcon},{nameOpt:"Climatisation", icon:climIcon}, {nameOpt:"1 Bagage", icon:bagageIcon}],
         img:lamborghiniAventador
     },
 
