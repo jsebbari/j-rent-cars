@@ -83,7 +83,7 @@ const Navigation = () => {
           )}
 
         
-                <NavLink activeclassname="active"  className ="nav-item" to="/" >Accueil</NavLink>
+              <NavLink activeclassname="active"  className ="nav-item" to="/" >Accueil</NavLink>
               <NavLink activeclassname="active" className="nav-item" to="/vehicules">Nos véhicules</NavLink>
               <NavLink activeclassname="active" className="nav-item" to="/contact">Contact</NavLink>
             </nav>

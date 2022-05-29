@@ -11,7 +11,10 @@ export default function ModalCar({showModal,setShowModal, fullscreen, marque,mod
           <Modal.Header closeButton>
             <Modal.Title>{marque} {model}</Modal.Title>
           </Modal.Header>
-          <Modal.Body><CarouselCar img={img}/></Modal.Body>
+          <Modal.Body  style={{backgroundColor:"rgb(13, 14, 15)",padding:0}}>
+          <CarouselCar img={img}/>
+          </Modal.Body>
+          
         </Modal>
       </>
     );
