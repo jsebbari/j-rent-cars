@@ -3,7 +3,7 @@
 .modal-body {
     display:flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex;
 
 }
 
@@ -18,8 +18,44 @@
  padding:.5rem;
 }
 
+.right-modal {
+   
+    display:flex;
+    flex-direction:column;
+    height:450px;
+    justify-content: flex-start;
+    align-items:center;
+    margin:1rem;
+    width:50%;
+}
+
 .carousel-indicators button {
     background-color: rgb(205, 171, 126) !important;
+}
+
+.show-calendar-btn{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.arrow-btn{
+    transform: rotate(45deg);
+    border:solid rgb(255, 255, 255);
+    border-width: 0 2px 2px 0;
+    display:inline-block;
+    padding:3px;
+    transition:all .3s ease-in;
+}
+
+.arrow-btn-open{
+    transform: rotate(-135deg);
+    border:solid rgb(255, 255, 255);
+    border-width: 0 2px 2px 0;
+    display:inline-block;
+    padding:3px;
+    transition:all .3s ease-in;
 }
 
 @media (width <= 1270px) {
@@ -36,7 +72,15 @@
     .modal-body {
         padding:0;
         justify-content: flex-start;
+        padding-bottom:3rem;
         
+    }
+    .right-modal {
+        justify-content: center;
+        align-items:center;
+        height:auto;
+        width:100%;
+        margin:0;
     }
     
 }

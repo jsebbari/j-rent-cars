@@ -1,13 +1,16 @@
+import { useState } from "react";
 import { Modal, CloseButton, Button } from "react-bootstrap";
 import CarouselCar from './CarouselCar'
 import uuid from 'react-uuid'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/ModalCar.css'
 import { faUnderline } from "@fortawesome/free-solid-svg-icons";
+import CalendarRent from './CalendarRent'
 
 
 export default function ModalCar({showModal,setShowModal, fullscreen, marque,model,options}) {
 
+  const [showCalendar, setShowCalendar] = useState (false)
 
   const optionsList = options.map(opt => {
 
@@ -17,18 +20,25 @@ export default function ModalCar({showModal,setShowModal, fullscreen, marque,mod
     </div> 
   })
 
+
+  const arrowDirection= showCalendar? "arrow-btn-open": "arrow-btn"
     return (
       <>
         <Modal show={showModal} fullscreen={fullscreen} onHide={() => setShowModal(false)}  >
         <CloseButton variant='white' onClick={() => setShowModal(false)}  />
           <Modal.Body   style={{backgroundColor:"rgb(13, 14, 15)"}}>
           <CarouselCar marque={marque} model={model}/>
-          <div className="d-flex flex-column align-items-center m-2 ">
+          <div className="right-modal">
             <h1 style={{backgroundColor:'antiquewhite',margin:'.5rem 0',padding:'1rem',textAlign:'center', width:'100%'}}> {marque} {model}</h1>
             <div style={{display:'flex', justifyContent:'center',width:'100%'}}>
               {optionsList}
             </div>
-            <Button>Vérifier la disponibilité</Button>
+            <Button className="show-calendar-btn" onClick={()=>setShowCalendar(!showCalendar)}>
+              Vérifier la disponibilité 
+              <i className={arrowDirection}></i>
+
+            </Button>
+            {showCalendar&&<CalendarRent/>}
           </div>
           
           

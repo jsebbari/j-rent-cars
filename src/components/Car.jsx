@@ -29,9 +29,7 @@ function Car({ id, marque, model, price, options, img}) {
   }, [tripDates]);
 
 
-
 // ______________ functions _____________ 
-
 
   const changeDate = (e) => {
     setTripDates({
@@ -49,14 +47,7 @@ function Car({ id, marque, model, price, options, img}) {
     setCarHover(false);
   };
 
- 
-
-
-
-
   const zoomImgHover = carHover && "hover-img";
-
-
 
   return (
     <>
