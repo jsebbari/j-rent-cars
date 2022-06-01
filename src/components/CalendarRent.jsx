@@ -13,7 +13,8 @@ function CalendarRent() {
 
   return (
     <div className='calendar-container'>
-      <Calendar onChange={onChange} value={value} minDate={new Date()} />
+      
+      <Calendar onChange={onChange} value={value}  selectRange={true}/>
     </div>
   );
 }

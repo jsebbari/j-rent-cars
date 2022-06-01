@@ -5,6 +5,7 @@ import {cars} from '../datas/cars'
 
 function Products() {
 
+      
     
     return (
         
@@ -12,6 +13,7 @@ function Products() {
             
             <div className='title-cars-container'>
                 <h1 className='title-cars'>Nos véhicules</h1>
+                
             </div>
                 <div className="cars">
                     {cars.map (car => {
@@ -23,6 +25,7 @@ function Products() {
                             price={car.price}
                             options={car.options}
                             img= {car.img}
+                            description={car.description}
                         />
                     })}
                 </div>

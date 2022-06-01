@@ -18,10 +18,10 @@ function Home() {
 
         
         <div id="home">
-            <div id='presentation'>
+            <main id='presentation'>
                 <h1 id="title-home">Louez la liberté</h1>
-                 <Link to= "/vehicules" id="link-to-products"> {`> Tous les modèles`}</Link>
-            </div>
+                 <Link className='btn btn-warning mt-2 ' to= "/vehicules" > Voir tous les modèles</Link>
+            </main>
         </div>
 
     )

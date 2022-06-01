@@ -14,12 +14,12 @@ export default function CarouselCar({marque,model}) {
 
   return (
    
-<Carousel controls={false}>
+<Carousel controls={false}  >
 
 
   <Carousel.Item>
   <img
-      className="img-carousel"
+      className=" d-block w-100 img-carousel"
       src={`/imgs-car/${withoutSpace(model)}.jpg`}
       alt="Second slide"
     />
@@ -29,7 +29,7 @@ export default function CarouselCar({marque,model}) {
 
   <Carousel.Item>
   <img
-      className="img-carousel"
+      className="d-block w-100 img-carousel"
       src={`/imgs-car/interior-${withoutSpace(marque)}.jpg`}
       alt="First slide"
     />

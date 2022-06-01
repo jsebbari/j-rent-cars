@@ -6,39 +6,60 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/ModalCar.css'
 import { faUnderline } from "@fortawesome/free-solid-svg-icons";
 import CalendarRent from './CalendarRent'
+import CalendarRange from "./CalendarRange";
+import CalendarModal from "./CalendarModal";
 
 
-export default function ModalCar({showModal,setShowModal, fullscreen, marque,model,options}) {
+export default function ModalCar({showModal,setShowModal, fullscreen, marque,model,options,description}) {
 
-  const [showCalendar, setShowCalendar] = useState (false)
+  // const [showCalendar, setShowCalendar] = useState (false)
 
   const optionsList = options.map(opt => {
 
-    return <div key={uuid()} style={{display:'flex', flexDirection:'column', alignItems:'center', margin:'0 1rem', color:'antiquewhite'}}>
-      {opt.icon}
+    return <li key={uuid()} style={{display:'flex', flexDirection:'column', alignItems:'center' ,color:'antiquewhite',listStyleType:'none'}}>
+      <i>{opt.icon}</i>
       <p>{opt.nameOpt}</p>
-    </div> 
+    </li> 
   })
 
+  const closeModalButton = ()=> {
+   setShowModal(false)
+  }
 
-  const arrowDirection= showCalendar? "arrow-btn-open": "arrow-btn"
+
+  // const arrowDirection= showCalendar? "arrow-btn-open": "arrow-btn"
     return (
       <>
-        <Modal show={showModal} fullscreen={fullscreen} onHide={() => setShowModal(false)}  >
-        <CloseButton variant='white' onClick={() => setShowModal(false)}  />
-          <Modal.Body   style={{backgroundColor:"rgb(13, 14, 15)"}}>
+        <Modal show={showModal} fullscreen={fullscreen} onHide={() => setShowModal(false)}>
+        <CloseButton variant='white' onClick={closeModalButton} className='btn-close-modal-car'/>
+          <Modal.Body  className="modal-car-body" style={{backgroundColor:"rgb(13, 14, 15)"}}>
+          
           <CarouselCar marque={marque} model={model}/>
-          <div className="right-modal">
-            <h1 style={{backgroundColor:'antiquewhite',margin:'.5rem 0',padding:'1rem',textAlign:'center', width:'100%'}}> {marque} {model}</h1>
-            <div style={{display:'flex', justifyContent:'center',width:'100%'}}>
-              {optionsList}
-            </div>
-            <Button className="show-calendar-btn" onClick={()=>setShowCalendar(!showCalendar)}>
-              Vérifier la disponibilité 
-              <i className={arrowDirection}></i>
+          <div className="bottom-modal-car">
+            
 
-            </Button>
-            {showCalendar&&<CalendarRent/>}
+         
+           
+            <h1 className="title-style"> {marque} {model}</h1>
+            <a href="#disponibilités" className="btn btn-warning
+             disponibility-btn">
+              Vérifier les disponibilités
+            </a> 
+
+            <p style={{color:'antiquewhite', padding:'0 .5rem', textAlign:'center'}}>{description}</p>
+
+            <h3>Options principales</h3>
+            <ul style={{display:'flex', justifyContent:'space-evenly',width:'100%', marginTop:'1rem'}}>
+              {optionsList}
+            </ul>
+          
+
+           
+           <div id='disponibilités'>
+             <h3>Disponibilités</h3>
+              <CalendarRange/>
+           </div>
+            
           </div>
           
           

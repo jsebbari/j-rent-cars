@@ -1,8 +1,11 @@
 .carousel {
-    width:800px;
+    width:850px;
    height:450px;
-    margin: 0;
+  margin: 0;
+  display: block;
   }
+
+
 
   .img-carousel{
       width:100%;

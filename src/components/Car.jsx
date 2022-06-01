@@ -3,7 +3,7 @@ import ModalCar from './ModalCar'
 import "../styles/Car.css";
 
 
-function Car({ id, marque, model, price, options, img}) {
+function Car({ id, marque, model, price, options, img, description}) {
 
 // ______________ states _____________ 
 
@@ -64,7 +64,7 @@ function Car({ id, marque, model, price, options, img}) {
       <img src={img} alt={`${marque}_${model}`} className={`${zoomImgHover} img-car`} />
      
     </div>
-      <ModalCar img={img} showModal={showModal} setShowModal={setShowModal} fullscreen={fullscreen} marque={marque} model={model} options={options} />
+      <ModalCar img={img} showModal={showModal} setShowModal={setShowModal} fullscreen={fullscreen} marque={marque} model={model} options={options} description ={description} />
       </>
   );
 }
@@ -72,37 +72,3 @@ function Car({ id, marque, model, price, options, img}) {
 export default Car;
 
 
-     {/* <label htmlFor="start">Départ</label>
-      <input
-        type="date"
-        id="start"
-        name="tripStart"
-        min={new Date()}
-        max={tripDates.tripEnd}
-        onChange={changeDate}
-      />
-
-      <label htmlFor="start">Retour</label>
-      <input
-        type="date"
-        id="end"
-        name="tripEnd"
-        min={tripDates.tripStart}
-        onChange={changeDate}
-      />
-
-      <button onClick={validForm}>Louer</button> */}
-
-////////////////////////////////////////////////////////////////////////////////
-
-      // const validForm = () => {
-      //   if (tripDates.tripStart === undefined) {
-      //     alert("🚨 Merci de saisir la date du début de location 🚨");
-      //   } else if (tripDates.tripEnd === undefined) {
-      //     alert("🚨 Merci de saisir la date de retour de location 🚨");
-      //   } else {
-      //     alert(
-      //       `Félicitation 🎊, la location de votre ${tripDates.car} est confirmée pour la période du ${tripDates.tripStart} au ${tripDates.tripEnd}`
-      //     );
-      //   }
-      // };
