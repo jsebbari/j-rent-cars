@@ -46,7 +46,7 @@ export default function ModalCar({showModal,setShowModal, fullscreen, marque,mod
               Vérifier les disponibilités
             </a> 
 
-            <p style={{color:'antiquewhite', padding:'0 .5rem', textAlign:'center'}}>{description}</p>
+            <p style={{color:'antiquewhite', padding:'0 1rem', textAlign:'justify', display:'flex', justifyContent:'center', alignItems:'center'}}>{description}</p>
 
             <h3>Options principales</h3>
             <ul style={{display:'flex', justifyContent:'space-evenly',width:'100%', marginTop:'1rem'}}>

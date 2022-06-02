@@ -29,7 +29,7 @@ export const cars = [
         price: 15,
         options:[{nameOpt:'Gps', icon:gpsIcon},{nameOpt:"5 portes", icon:doorIcon}, {nameOpt:"Climatisation", icon:climIcon}, {nameOpt:"2 Bagages", icon:bagageIcon}],
         img: mercedesClassA,
-        description:"Votre Mercedes Classe A AMG Line vous permet d'affirmer votre sportivité, à l'extérieur comme à l'intérieur. Le kit carrosserie AMG rapproche l’esthétique du véhicule de celle des véhicules Mercedes-AMG haute performance. Ses jupes avant et arrière spéciales et son train de roulement surbaissé au réglage sportif renforcent les sensations de conduite."    },
+        description:"Votre Mercedes Classe A AMG Line vous permet d'affirmer votre sportivité, à l'extérieur comme à l'intérieur. Le kit carrosserie AMG rapproche l’esthétique du véhicule de celle des véhicules Mercedes-AMG haute performance."    },
     {
         id:2,
         marque: "Mercedes",
@@ -37,7 +37,7 @@ export const cars = [
         price: 30,
         options:[{nameOpt:'Gps', icon:gpsIcon},{nameOpt:"3 portes", icon:doorIcon}, {nameOpt:"Climatisation", icon:climIcon}, {nameOpt:"2 Bagages", icon:bagageIcon}],
         img: mercedesClassC,
-        description:"Que ce soit aux heures de pointe, sur les longs trajets de nuit ou sur des routes inconnues, Votre Classe C Coupé vous permet de conduire nettement plus détendu, notamment durant les situations génératrices de stress. Pour cela, il mise sur un concept qui maximise la sécurité des occupants et rend chaque trajet en Mercedes-Benz parfaitement unique."},
+        description:"Que ce soit aux heures de pointe, sur les longs trajets de nuit ou sur des routes inconnues, Votre Classe C Coupé vous permet de conduire nettement plus détendu, notamment durant les situations génératrices de stress."},
     {
         id:3,
         marque: "Volswagen",
@@ -45,7 +45,7 @@ export const cars = [
         price: 15,
         options:[{nameOpt:'Gps', icon:gpsIcon},{nameOpt:"5 portes", icon:doorIcon}, {nameOpt:"Climatisation", icon:climIcon}, {nameOpt:"2 Bagages", icon:bagageIcon}],
         img: vwPolo,
-        description:"Un intérieur et un extérieur à vous couper le souffle. La Nouvelle Polo séduit immédiatement avec sa grande variété d’équipements de série, comme le Digital Cockpit, le système de climatisation et la radio Composition avec réception numérique DAB+ et interface pour téléphone portable..."},
+        description:"Un intérieur et un extérieur à vous couper le souffle. La Nouvelle Polo séduit immédiatement avec sa grande variété d’équipements comme le système de climatisation,l'interface pour téléphone portable..."},
     {
         id:4,
         marque: "Volswagen",
