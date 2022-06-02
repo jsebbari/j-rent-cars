@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { DateRange } from 'react-date-range'
 import {fr} from 'react-date-range/dist/locale';
+import '../styles/CalendarRange.css'
 
 
 
@@ -22,12 +23,14 @@ function CalendarRange() {
       
     <DateRange
     rangeColors={['#ffc107']}
+    className='range-date text-dark'
     minDate={new Date()}
     locale={fr}
     editableDateInputs={true}
     onChange={item => setState([item.selection])}
     moveRangeOnFirstSelection={false}
     ranges={state}
+    showDateDisplay={false}
     />
     
     
