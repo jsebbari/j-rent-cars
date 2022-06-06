@@ -1,6 +1,7 @@
 import "../styles/Products.css"
 import Car from '../components/Car'
 import {cars} from '../datas/cars'
+import uuid from "react-uuid"
 
 
 function Products() {
@@ -18,13 +19,11 @@ function Products() {
                 <div className="cars">
                     {cars.map (car => {
                     return  <Car 
-                            key={car.id}
-                            id={car.id}
+                            key={uuid()}
                             marque={car.marque}
                             model={car.model}
                             price={car.price}
                             options={car.options}
-                            img= {car.img}
                             description={car.description}
                         />
                     })}

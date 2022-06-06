@@ -1,71 +1,122 @@
-import { useState } from "react";
-import { Modal, CloseButton, Button } from "react-bootstrap";
-import CarouselCar from './CarouselCar'
-import uuid from 'react-uuid'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/ModalCar.css'
-import { faUnderline } from "@fortawesome/free-solid-svg-icons";
-import CalendarRent from './CalendarRent'
+import { Modal, CloseButton } from "react-bootstrap";
+import CarouselCar from "./CarouselCar";
+import uuid from "react-uuid";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/ModalCar.css";
+
 import CalendarRange from "./CalendarRange";
-import CalendarModal from "./CalendarModal";
 
+import { GiCarDoor, GiGps } from "react-icons/gi";
+import { FaRegSnowflake } from "react-icons/fa";
+import { MdLuggage} from "react-icons/md";
 
-export default function ModalCar({showModal,setShowModal, fullscreen, marque,model,options,description}) {
+export default function ModalCar({
+  showModal,
+  setShowModal,
+  fullscreen,
+  marque,
+  model,
+  options,
+  description,
+}) {
+  const doorIcon = <GiCarDoor size={30} />;
+  const gpsIcon = <GiGps size={30} />;
+  const climIcon = <FaRegSnowflake size={30} />;
+  const bagageIcon = <MdLuggage size={30} />;
 
-  // const [showCalendar, setShowCalendar] = useState (false)
+  const OptionIconGenerator = (option) => {
+    if (option === "Gps") {return gpsIcon}
+    
+    else if (option === "Climatisation") {return climIcon}
 
-  const optionsList = options.map(opt => {
+    else if (option.includes("portes")){return doorIcon} 
+    
+    else if (option.includes("Bagage")) {return bagageIcon}
 
-    return <li key={uuid()} style={{display:'flex', flexDirection:'column', alignItems:'center' ,color:'antiquewhite',listStyleType:'none'}}>
-      <i>{opt.icon}</i>
-      <p>{opt.nameOpt}</p>
-    </li> 
-  })
-
-  const closeModalButton = ()=> {
-   setShowModal(false)
   }
 
+  const optionsList = options.map((opt) => {
+    return <li
+    key={uuid()}
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      color: "antiquewhite",
+      listStyleType: "none",
+    }}
+  >
+    <i>{OptionIconGenerator(opt)}</i> 
+    <p>{opt}</p>
+     </li>
+  });
 
-  // const arrowDirection= showCalendar? "arrow-btn-open": "arrow-btn"
-    return (
-      <>
-        <Modal show={showModal} fullscreen={fullscreen} onHide={() => setShowModal(false)}>
-        <CloseButton variant='white' onClick={closeModalButton} className='btn-close-modal-car'/>
-          <Modal.Body  className="modal-car-body" style={{backgroundColor:"rgb(13, 14, 15)"}}>
-          
-          <CarouselCar marque={marque} model={model}/>
+  const closeModalButton = () => {
+    setShowModal(false);
+  };
+
+  return (
+    <>
+      <Modal
+        show={showModal}
+        fullscreen={fullscreen}
+        onHide={() => setShowModal(false)}
+      >
+        <CloseButton
+          variant="white"
+          onClick={closeModalButton}
+          className="btn-close-modal-car"
+        />
+        <Modal.Body
+          className="modal-car-body"
+          style={{ backgroundColor: "rgb(13, 14, 15)" }}
+        >
+          <CarouselCar marque={marque} model={model} />
           <div className="bottom-modal-car">
-            
-
-         
-           
-            <h1 className="title-style"> {marque} {model}</h1>
-            <a href="#disponibilités" className="btn btn-warning
-             disponibility-btn">
+            <h1 className="title-style">
+              {" "}
+              {marque} {model}
+            </h1>
+            <a
+              href="#disponibilités"
+              className="btn btn-warning
+             disponibility-btn"
+            >
               Vérifier les disponibilités
-            </a> 
+            </a>
 
-            <p style={{color:'antiquewhite', padding:'0 1rem', textAlign:'justify', display:'flex', justifyContent:'center', alignItems:'center'}}>{description}</p>
+            <p
+              style={{
+                color: "antiquewhite",
+                padding: "0 1rem",
+                textAlign: "justify",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              {description}
+            </p>
 
             <h3>Options principales</h3>
-            <ul style={{display:'flex', justifyContent:'space-evenly',width:'100%', marginTop:'1rem'}}>
+            <ul
+              style={{
+                display: "flex",
+                justifyContent: "space-evenly",
+                width: "100%",
+                marginTop: "1rem",
+              }}
+            >
               {optionsList}
             </ul>
-          
 
-           
-           <div id='disponibilités'>
-             <h3>Disponibilités</h3>
-              <CalendarRange/>
-           </div>
-            
+            <div id="disponibilités">
+              <h3>Disponibilités</h3>
+              <CalendarRange />
+            </div>
           </div>
-          
-          
-          </Modal.Body>
-          
-        </Modal>
-      </>
-    );
-  }
+        </Modal.Body>
+      </Modal>
+    </>
+  );
+}

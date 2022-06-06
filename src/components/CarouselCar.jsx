@@ -4,7 +4,8 @@ import { Carousel } from "react-bootstrap"
 import "../styles/CarouselCar.css"
 
 export default function CarouselCar({marque,model}) {
-  const withoutSpace = (mod)=> {
+
+  const withoutSpaceModelName = (mod)=> {
     mod.toLowerCase()
     let newModelName=  mod.replace(' ', '-')
       return newModelName
@@ -20,7 +21,7 @@ export default function CarouselCar({marque,model}) {
   <Carousel.Item>
   <img
       className=" d-block w-100 img-carousel"
-      src={`/imgs-car/${withoutSpace(model)}.jpg`}
+      src={`/imgs-car/${withoutSpaceModelName(model)}.jpg`}
       alt="Second slide"
     />
    
@@ -30,7 +31,7 @@ export default function CarouselCar({marque,model}) {
   <Carousel.Item>
   <img
       className="d-block w-100 img-carousel"
-      src={`/imgs-car/interior-${withoutSpace(marque)}.jpg`}
+      src={`/imgs-car/interior-${withoutSpaceModelName(marque)}.jpg`}
       alt="First slide"
     />
 
