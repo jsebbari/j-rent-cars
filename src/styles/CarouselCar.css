@@ -5,7 +5,9 @@
   display: block;
   }
 
-
+  .carousel-indicators button {
+    background-color: #FFA900 !important;
+}
 
   .img-carousel{
       width:100%;

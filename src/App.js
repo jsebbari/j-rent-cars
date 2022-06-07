@@ -4,6 +4,7 @@ import Products from "./screens/Products";
 import Home from "./screens/Home";
 import Contact from "./screens/Contact";
 import "./App.css"
+import app from "./firebase.config"
 
 function App() {
   return (

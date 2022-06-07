@@ -48,9 +48,7 @@ h3{
     position: relative;
 }
 
-.carousel-indicators button {
-    background-color: rgb(205, 171, 126) !important;
-}
+
 
 .disponibility-btn{
     display:flex;
