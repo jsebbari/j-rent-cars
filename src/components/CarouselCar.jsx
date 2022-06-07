@@ -1,82 +1,72 @@
-import { useEffect, useState } from "react"
-import { Carousel, Spinner} from "react-bootstrap"
-import uuid from "react-uuid"
+import { useEffect, useState } from "react";
+import { Carousel, Spinner } from "react-bootstrap";
+import uuid from "react-uuid";
 
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
+import "../styles/CarouselCar.css";
 
+export default function CarouselCar({ marque, model }) {
+  const [urls, setUrls] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-import "../styles/CarouselCar.css"
+  const withoutSpaceModelName = (mod) => {
+    let lowerText = mod.toLowerCase();
+    let newModelName = lowerText.replace(" ", "-");
+    return newModelName;
+  };
 
-export default function CarouselCar({marque,model}) {
+  //fetch Images________________________________________
 
-  const [urls,setUrls] = useState([])
-  const [loading,setLoading] =useState(true)
+  const fetchImg = async (modelCar, marqueCar) => {
+    const formatModelCar = withoutSpaceModelName(modelCar);
+    const formatMarqueCar = withoutSpaceModelName(marqueCar);
+    const storage = getStorage();
+    const imgRef = ref(storage, `img-cars/${formatModelCar}.jpg`);
+    const imgInteriorRef = ref(storage,`img-cars/interior-${formatMarqueCar}.jpg`);
 
-  const withoutSpaceModelName = (mod)=> {
-   let lowerText= mod.toLowerCase()
-    let newModelName=  lowerText.replace(' ', '-')
-      return newModelName
-  }
+    let carImg;
+    let interiorImg;
 
-  
-//fetch Images________________________________________
+    await getDownloadURL(imgRef).then((x) => {
+      carImg = x;
+    });
+    await getDownloadURL(imgInteriorRef).then((y) => {
+      interiorImg = y;
+    });
 
-const fetchImg = async (modelCar, marqueCar) => {
-  const formatModelCar= withoutSpaceModelName(modelCar)
-  const formatMarqueCar= withoutSpaceModelName(marqueCar)
-  const storage = getStorage();
-  const imgRef = ref(storage, `img-cars/${formatModelCar}.jpg`);
-  const imgInteriorRef = ref(storage, `img-cars/interior-${formatMarqueCar}.jpg`);
+    setUrls([carImg, interiorImg]);
 
-  let carImg
-  let interiorImg
+    setLoading(false);
+  };
 
- await getDownloadURL(imgRef).then ((x) => {
-      carImg = x
-  })
-await getDownloadURL(imgInteriorRef).then ((y) => {
-    interiorImg = y
-})
+  // useEffect_____________________________________________
 
- setUrls([carImg, interiorImg])
+  useEffect(async () => {
+    fetchImg(model, marque);
+  }, []);
 
-setLoading (false)
-}
+  // functions____________________________________________
 
-//UseEffect___________________________________
-
-useEffect(async () => {
- 
-  fetchImg(model, marque)  
-
-}, [])
-
-// functions___________________________________
-
-const displayImgs= urls.map((img) => {
- return <Carousel.Item key={uuid()}>
-  <img
-      className="d-block w-100 img-carousel"
-      src={img}
-      alt={`${marque}-${model}`}
-    /> 
-  </Carousel.Item>
-})
-
-
+  const displayImgs = urls.map((img) => {
+    return (
+      <Carousel.Item key={uuid()}>
+        <img
+          className="d-block w-100 img-carousel"
+          src={img}
+          alt={`${marque}-${model}`}
+        />
+      </Carousel.Item>
+    );
+  });
 
   return (
-   
-<Carousel controls={false} indicators={loading?false:true} >
-
-{!loading?displayImgs: <Carousel.Item className=" d-block img-carousel w-100 d-flex justify-content-center align-items-center"> <Spinner animation="border" variant="warning"  /></Carousel.Item>}
-
-</Carousel>
-
-)
-
-
- 
-
+    <Carousel controls={false} indicators={loading ? false : true}>
+      {!loading ? (displayImgs) : (
+        <Carousel.Item className=" d-block img-carousel w-100 d-flex justify-content-center align-items-center">
+          <Spinner animation="border" variant="warning" />
+        </Carousel.Item>
+      )}
+    </Carousel>
+  );
 }

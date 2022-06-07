@@ -10,15 +10,8 @@ import { GiCarDoor, GiGps } from "react-icons/gi";
 import { FaRegSnowflake } from "react-icons/fa";
 import { MdLuggage} from "react-icons/md";
 
-export default function ModalCar({
-  showModal,
-  setShowModal,
-  fullscreen,
-  marque,
-  model,
-  options,
-  description,
-}) {
+export default function ModalCar(props) {
+  const {showModal, setShowModal, fullscreen, marque, model, options, description}=props
   const doorIcon = <GiCarDoor size={30} />;
   const gpsIcon = <GiGps size={30} />;
   const climIcon = <FaRegSnowflake size={30} />;

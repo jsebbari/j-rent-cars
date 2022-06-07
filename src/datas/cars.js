@@ -6,7 +6,8 @@ export const cars = [
         model: "Classe A",
         price: 15,
         options:['Gps',"5 portes", "Climatisation", "2 Bagages"],
-        description:"Votre Mercedes Classe A AMG Line vous permet d'affirmer votre sportivité, à l'extérieur comme à l'intérieur. Le kit carrosserie AMG rapproche l’esthétique du véhicule de celle des véhicules Mercedes-AMG haute performance."
+        description:"Votre Mercedes Classe A AMG Line vous permet d'affirmer votre sportivité, à l'extérieur comme à l'intérieur. Le kit carrosserie AMG rapproche l’esthétique du véhicule de celle des véhicules Mercedes-AMG haute performance.",
+        category:"Citadine"
     },
 
     {

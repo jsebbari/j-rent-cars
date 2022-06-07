@@ -14,9 +14,6 @@ function Home() {
     },[])
     return (
 
-
-
-        
         <div id="home">
             <main id='presentation'>
                 <h1 id="title-home">Louez la liberté</h1>

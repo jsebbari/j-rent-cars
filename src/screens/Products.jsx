@@ -3,11 +3,11 @@ import Car from '../components/Car'
 import {cars} from '../datas/cars'
 import uuid from "react-uuid"
 
+import FilterCategories from "../components/FilterCategories"
+
 
 function Products() {
 
-      
-    
     return (
         
         <div className="Products">
@@ -16,6 +16,7 @@ function Products() {
                 <h1 className='title-cars'>Nos véhicules</h1>
                 
             </div>
+            <FilterCategories/>
                 <div className="cars">
                     {cars.map (car => {
                     return  <Car 

@@ -68,7 +68,7 @@ const { marque, model, price, options, description } = props
             onMouseLeave={mouseOutCar}
             className="car"
       >
-        <h3 className="title-card">
+        <h3 className="title-card bg-warning">
           {marque} {model}
         </h3>
         <p>{price}€/jour</p>
