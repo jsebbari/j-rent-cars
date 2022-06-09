@@ -1,15 +1,49 @@
-import React from 'react'
-import {Button} from'react-bootstrap'
+import {useState, useEffect} from "react"
+import "../styles/FilterCategories.css"
+import {Button,Dropdown} from'react-bootstrap'
 import {BsFilter} from "react-icons/bs";
 
-function FilterCategories() {
+function FilterCategories(props) {
+  const  {displayedData,setDisplayedData} = props
+
+
+
+  
+    const descendingOrder=() => {
+        const descendingListFilter= displayedData.sort((a, b) => {
+            return b.price - a.price;
+        });
+
+        setDisplayedData(descendingListFilter)
+       
+    }
+
+    const ascendingOrder=() => {
+        const ascendingListFilter= displayedData.sort((a, b) => {
+            return a.price - b.price;
+        });
+
+        setDisplayedData(ascendingListFilter)
+    }
+
+
   return (
-    <div className='align-self-md-end align-self-sm-center mx-md-5 mt-2'>
-        <Button variant="outline-warning" className=' d-flex justify-content-center px-4 w-auto '>
-           <span className='mx-2'>Filtrer</span> 
+
+
+<Dropdown className='align-self-md-start align-self-sm-center mx-md-5 mt-2'>
+        <Dropdown.Toggle  variant="outline-warning" id="dropdown-basic" className=' d-flex justify-content-center px-4 w-auto '>
+            <span className='mx-2'>Filtrer</span> 
             <BsFilter size={25} />
-        </Button>
-    </div>
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu variant="dark">
+            <Dropdown.Item onClick={ascendingOrder} >Par odre croissant</Dropdown.Item>
+            <Dropdown.Item onClick={descendingOrder} >Par odre décroissant</Dropdown.Item>
+            <Dropdown.Item >Something else</Dropdown.Item>
+        </Dropdown.Menu>
+</Dropdown>
+
+    
   )
 }
 

@@ -1,3 +1,4 @@
+import {useState, useEffect} from "react"
 import "../styles/Products.css"
 import Car from '../components/Car'
 import {cars} from '../datas/cars'
@@ -8,6 +9,10 @@ import FilterCategories from "../components/FilterCategories"
 
 function Products() {
 
+    const [displayedData, setDisplayedData] = useState(cars)
+
+
+    
     return (
         
         <div className="Products">
@@ -16,9 +21,10 @@ function Products() {
                 <h1 className='title-cars'>Nos véhicules</h1>
                 
             </div>
-            <FilterCategories/>
+
+            <FilterCategories displayedData={displayedData} setDisplayedData = {setDisplayedData}/>
                 <div className="cars">
-                    {cars.map (car => {
+                    {displayedData.map (car => {
                     return  <Car 
                             key={uuid()}
                             marque={car.marque}
