@@ -10,6 +10,7 @@ import FilterCategories from "../components/FilterCategories"
 function Products() {
 
     const [displayedData, setDisplayedData] = useState(cars)
+    const [filterData, setFilterData] = useState([])
     
 
 
@@ -18,9 +19,10 @@ function Products() {
 // }, [])
 
 
+const mapDatas = filterData.length === 0 ? displayedData : filterData;
 
 
-   const listCars= displayedData.map (car => {
+   const listCars= mapDatas.map (car => {
         return  <Car 
                 key={uuid()}
                 marque={car.marque}
@@ -40,7 +42,7 @@ function Products() {
                 
             </div>
 
-            <FilterCategories displayedData={displayedData} setDisplayedData = {setDisplayedData} />
+            <FilterCategories displayedData={displayedData} setDisplayedData = {setDisplayedData} filterData={filterData} setFilterData={setFilterData}/>
                 <div className="cars">
                     {listCars}
                 </div>
