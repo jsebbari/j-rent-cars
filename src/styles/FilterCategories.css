@@ -1,3 +1,14 @@
 .dropdown-toggle::after {
     display: none !important; 
   }
+
+  .btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none;
+ }
+ 
+
+ .dropdown-item:active{
+   background-color: #ffc107;
+   color:black;
+ }

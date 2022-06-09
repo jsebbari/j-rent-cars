@@ -71,7 +71,7 @@ const { marque, model, price, options, description } = props
         <h3 className="title-card bg-warning">
           {marque} {model}
         </h3>
-        <p>{price}€/jour</p>
+        <p className="price-card">{price}€/jour</p>
         <img src= {imgPath(model)} alt={`${marque}_${model}`} className={`${zoomImgHover} img-car`} />
       
       </div>

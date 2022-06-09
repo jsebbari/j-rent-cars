@@ -10,24 +10,6 @@
 }
 
 
-.close-icon-nav{
-    position: absolute;
-    top:1rem;
-    left:2rem;
-}
-
-.white-color-home {
-    color: #F6F6F6;
-}
-
-.hide-logo {
-    visibility: hidden;
-}
-
-.yellow-color-home {
-    color:antiquewhite;
-}
-
 .hide-nav {
     background-color: rgb(21, 24, 27);
     position:absolute;
@@ -66,24 +48,14 @@ font-size:1.4rem;
 }
 
 .nav-item:hover {
-    color:antiquewhite;
+    color:#ffc107;
     }
 
-.icon-nav{
-    z-index:10;
+.hamburger-react{
+    z-index:1000;
     cursor: pointer;
-}
-
-.icon-nav:hover{
     color:antiquewhite;
 }
-
-.icon-nav:active{
-    color:#F6F6F6;
-    
-}
-
-
 
 
 @media (width <= 700px) {

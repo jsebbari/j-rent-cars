@@ -37,6 +37,11 @@ h3{
  padding:.5rem;
 }
 
+.btn-close-modal-car:focus,.btn-close-modal-car:active {
+    outline: none !important;
+    box-shadow: none;
+ }
+
 .bottom-modal-car {
    
     display:flex;

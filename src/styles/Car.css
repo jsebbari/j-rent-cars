@@ -1,5 +1,4 @@
 .car {
-    
     max-width:364px;
     display:flex;
     flex-direction: column;
@@ -9,12 +8,14 @@
     cursor: pointer;  
 }
 
-
+.price-card{
+    font-size: 1.4rem;
+}
 
 .title-card{
     background-color:antiquewhite;
     color: rgb(13, 14, 15);
-    padding:0 .5rem;
+    padding:.1rem .5rem;
 
 }
 .img-car{
