@@ -3,28 +3,26 @@ import "../styles/FilterCategories.css"
 import {Button,Dropdown} from'react-bootstrap'
 import {BsFilter} from "react-icons/bs";
 
-function FilterCategories(props) {
-  const  {displayedData,setDisplayedData} = props
+function FilterCategories({displayedData,setDisplayedData}) {
 
+function descendingOrder() {
+    const descendingListFilter= [...displayedData].sort((a, b) => {
+        return b.price - a.price;
+    });
 
+ 
+    setDisplayedData(descendingListFilter)
+   
+}
 
-  
-    const descendingOrder=() => {
-        const descendingListFilter= displayedData.sort((a, b) => {
-            return b.price - a.price;
-        });
+function ascendingOrder() {
+    const ascendingListFilter= [...displayedData].sort((a, b) => {
+        return a.price - b.price;
+    });
 
-        setDisplayedData(descendingListFilter)
-       
-    }
-
-    const ascendingOrder=() => {
-        const ascendingListFilter= displayedData.sort((a, b) => {
-            return a.price - b.price;
-        });
-
-        setDisplayedData(ascendingListFilter)
-    }
+   
+    setDisplayedData(ascendingListFilter)
+}
 
 
   return (

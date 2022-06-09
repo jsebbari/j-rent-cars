@@ -10,9 +10,27 @@ import FilterCategories from "../components/FilterCategories"
 function Products() {
 
     const [displayedData, setDisplayedData] = useState(cars)
+    const [filterData, setFilterData] = useState([])
 
 
-    
+// useEffect(() => {
+//     setDisplayedData(cars)
+// }, [])
+
+
+
+
+   const listCars= displayedData.map (car => {
+        return  <Car 
+                key={uuid()}
+                marque={car.marque}
+                model={car.model}
+                price={car.price}
+                options={car.options}
+                description={car.description}
+            />
+        })
+
     return (
         
         <div className="Products">
@@ -22,18 +40,9 @@ function Products() {
                 
             </div>
 
-            <FilterCategories displayedData={displayedData} setDisplayedData = {setDisplayedData}/>
+            <FilterCategories displayedData={displayedData} setDisplayedData = {setDisplayedData} />
                 <div className="cars">
-                    {displayedData.map (car => {
-                    return  <Car 
-                            key={uuid()}
-                            marque={car.marque}
-                            model={car.model}
-                            price={car.price}
-                            options={car.options}
-                            description={car.description}
-                        />
-                    })}
+                    {listCars}
                 </div>
                 
         </div>
