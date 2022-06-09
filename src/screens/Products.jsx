@@ -10,7 +10,7 @@ import FilterCategories from "../components/FilterCategories"
 function Products() {
 
     const [displayedData, setDisplayedData] = useState(cars)
-    const [filterData, setFilterData] = useState([])
+    
 
 
 // useEffect(() => {

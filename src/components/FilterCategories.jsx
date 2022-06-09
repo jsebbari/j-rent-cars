@@ -37,7 +37,6 @@ function ascendingOrder() {
         <Dropdown.Menu variant="dark">
             <Dropdown.Item onClick={ascendingOrder} >Par odre croissant</Dropdown.Item>
             <Dropdown.Item onClick={descendingOrder} >Par odre décroissant</Dropdown.Item>
-            <Dropdown.Item >Something else</Dropdown.Item>
         </Dropdown.Menu>
 </Dropdown>
 
