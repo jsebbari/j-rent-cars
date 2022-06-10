@@ -11,13 +11,6 @@ function Products() {
 
     const [displayedData, setDisplayedData] = useState(cars)
     const [filterData, setFilterData] = useState([])
-    
-
-
-// useEffect(() => {
-//     setDisplayedData(cars)
-// }, [])
-
 
 const mapDatas = filterData.length === 0 ? displayedData : filterData;
 

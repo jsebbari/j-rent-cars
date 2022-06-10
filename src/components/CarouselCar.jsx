@@ -6,7 +6,9 @@ import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 import "../styles/CarouselCar.css";
 
-export default function CarouselCar({ marque, model }) {
+export default function CarouselCar(props) {
+
+  const { marque, model } = props
   const [urls, setUrls] = useState([]);
   const [loading, setLoading] = useState(true);
 

@@ -1,0 +1,35 @@
+.error-page{
+    background-image: url('../imgs/bg-error.jpg');
+        background-position:center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color:antiquewhite;
+
+}
+
+.error-page h1{
+   border-bottom: 1px solid white;
+   width:50%;
+   text-align: center;
+   padding-bottom: .5rem;
+
+}
+
+
+
+.error-page main{
+   background-color: rgba(7, 7, 7, 0.824);
+   height:100%;
+   width:100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   
+}
+
+.error-page p{
+  
+    font-size: 1.5rem;
+    
+ }

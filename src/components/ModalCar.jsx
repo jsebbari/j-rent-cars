@@ -12,6 +12,7 @@ import { MdLuggage} from "react-icons/md";
 
 export default function ModalCar(props) {
   const {showModal, setShowModal, fullscreen, marque, model, options, description}=props
+  
   const doorIcon = <GiCarDoor size={30} />;
   const gpsIcon = <GiGps size={30} />;
   const climIcon = <FaRegSnowflake size={30} />;
@@ -19,11 +20,8 @@ export default function ModalCar(props) {
 
   const OptionIconGenerator = (option) => {
     if (option === "Gps") {return gpsIcon}
-    
     else if (option === "Climatisation") {return climIcon}
-
     else if (option.includes("portes")){return doorIcon} 
-    
     else if (option.includes("Bagage")) {return bagageIcon}
 
   }
@@ -36,6 +34,7 @@ export default function ModalCar(props) {
       flexDirection: "column",
       alignItems: "center",
       color: "antiquewhite",
+      padding:"0 1rem",
       listStyleType: "none",
     }}
   >
@@ -67,7 +66,6 @@ export default function ModalCar(props) {
           <CarouselCar marque={marque} model={model} />
           <div className="bottom-modal-car">
             <h1 className="title-style">
-              {" "}
               {marque} {model}
             </h1>
             <a
@@ -82,10 +80,11 @@ export default function ModalCar(props) {
               style={{
                 color: "antiquewhite",
                 padding: "0 1rem",
-                textAlign: "justify",
+                textAlign: "start",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+              
               }}
             >
               {description}
@@ -95,8 +94,7 @@ export default function ModalCar(props) {
             <ul
               style={{
                 display: "flex",
-                justifyContent: "space-evenly",
-                width: "100%",
+                justifyContent: "center",
                 marginTop: "1rem",
               }}
             >

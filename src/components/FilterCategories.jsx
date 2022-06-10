@@ -2,8 +2,8 @@ import "../styles/FilterCategories.css"
 import {Dropdown} from'react-bootstrap'
 import {GoSettings} from "react-icons/go";
 
-function FilterCategories({displayedData,setDisplayedData, filterData, setFilterData}) {
-
+function FilterCategories(props) {
+    const {displayedData,setDisplayedData, filterData, setFilterData} = props
 
     const mapDatas = filterData.length === 0 ? displayedData : filterData;
 

@@ -22,14 +22,11 @@ const { marque, model, price, options, description } = props
     setShowModal(true);
   }
   
-  
-
 // ______________ effect _____________ 
 
   useEffect(() => {
   
   }, []);
-
 
 // ______________ functions _____________ 
 
@@ -40,8 +37,6 @@ const { marque, model, price, options, description } = props
       [e.target.name]: e.target.value,
     });
   };
-
-
 
 
   const carHoverHandler = () => {
