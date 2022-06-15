@@ -9,8 +9,8 @@ export default function () {
   return (
     <div className="form-container bg-dark">
        
-        <div className='d-none d-md-flex presentation-form  align-items-center'>
-            <h3 className='d-flex h-100 w-100 align-items-center justify-content-center bg-dark bg-opacity-75 text-white'>Accédez à vos réservations</h3>
+        <div className=' presentation-form '>
+            <h3 className='d-flex h-100 w-100 align-items-center justify-content-center bg-dark bg-opacity-75 text-light'> <span className='bg-secondary bg-opacity-75 p-2'> Accédez à vos réservations</span></h3>
         </div>
 
         <div className='form-container-right'>

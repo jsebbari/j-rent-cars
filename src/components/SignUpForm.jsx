@@ -14,15 +14,15 @@ function SignUpForm({setDisplayForm}) {
   const confirmPasswordRef = useRef()
 
 
-  const submitForm =(e)=> {
+  const handleSubmitForm =(e)=> {
       e.preventDefault()
       
       if(passwordRef.current.value.length < 6){
-        setShowErrorAlert("Mot de passe inférieur à 6 caractères")
+        setShowErrorAlert("Mot de passe inférieur à 6 caractères")  
       }
 
       else if(confirmPasswordRef.current.value !== passwordRef.current.value){
-        setShowErrorAlert("Mot de passe différent")
+        setShowErrorAlert("Mot de passe différent")  
       }
 
       else{
@@ -35,7 +35,7 @@ function SignUpForm({setDisplayForm}) {
 
   
   return (
-    < div >
+    < div>
     { showErrorAlert&&<Alert  variant="danger" height="30px"  onClose ={()=>setShowErrorAlert(null)} dismissible>
           {showErrorAlert}
         </Alert>}
@@ -45,7 +45,7 @@ function SignUpForm({setDisplayForm}) {
       </Alert>}
       
       <h1 className='text-light'>Inscription</h1>
-      <form className='form' onSubmit ={submitForm} ref={formRef}>
+      <form className='form' onSubmit ={handleSubmitForm} ref={formRef}>
         <input type="text" name="name" placeholder='Nom' required/>
         <input type="text" name="firstName" placeholder='Prénom' required/>
         <input type="email" name="email" ref={emailRef} placeholder='Adresse mail' required/>

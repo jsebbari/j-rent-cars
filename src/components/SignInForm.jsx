@@ -10,7 +10,7 @@ function SignUpForm({setDisplayForm}) {
   const emailRef = useRef()
   const passwordRef = useRef()
 
-  const submitForm =(e)=> {
+  const handleSubmitForm =(e)=> {
       e.preventDefault()
       setUser({email:emailRef.current.value, password: passwordRef.current.value})      
   }
@@ -19,7 +19,7 @@ function SignUpForm({setDisplayForm}) {
   return (
     < div >
       <h1 className='text-light'>Se connecter</h1>
-      <form className='form' onSubmit ={submitForm}>
+      <form className='form' onSubmit ={handleSubmitForm}>
         <input type="email" name="email" ref={emailRef} placeholder='Adresse mail' required/>
         <input type="password" name="password" ref={passwordRef} placeholder='Mot de passe' required />
         <Button variant="warning" type="submit" className='w-100'>
