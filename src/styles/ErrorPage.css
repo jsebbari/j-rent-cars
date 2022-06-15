@@ -28,6 +28,16 @@
    
 }
 
+.wheel-icon {
+   transform: rotate(-360deg);
+   transition: transform 500ms ease-in-out;
+}
+
+.wheel-icon:hover {
+   transform: rotate(-360deg);
+   transition: transform 500ms ease-in-out;
+}
+
 .error-page p{
   
     font-size: 1.5rem;

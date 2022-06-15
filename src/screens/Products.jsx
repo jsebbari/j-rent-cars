@@ -31,7 +31,7 @@ const mapDatas = filterData.length === 0 ? displayedData : filterData;
         <div className="Products">
             
             <div className='title-cars-container'>
-                <h1 className='title-cars'>Nos véhicules</h1>
+                <h1 className='title-cars text-light'>Nos véhicules</h1>
                 
             </div>
 

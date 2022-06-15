@@ -6,6 +6,7 @@ import Contact from "./screens/Contact";
 import ErrorPage from "./screens/ErrorPage";
 import "./App.css"
 import app from "./firebase.config"
+import ConnectUser from "./screens/ConnectUser";
 
 function App() {
   return (
@@ -14,9 +15,10 @@ function App() {
     <div className="App">
         <Navigation/>
          <Routes>
-            <Route exact path=  "/" element={<Home />}/> 
-             <Route exact path= "vehicules" element={<Products />} />
-             <Route exact path= "contact" element={<Contact />} />
+            <Route exact path=  "/" element={<Home />} /> 
+             <Route exact path= "vehicules" element= {<Products />} />
+             <Route exact path= "contact" element= {<Contact />}/>
+             <Route exact path= "connexion" element= {<ConnectUser/>} />
              <Route exact path= "/*" element={<ErrorPage />} />
          </Routes>
 

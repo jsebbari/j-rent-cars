@@ -37,11 +37,12 @@ const Navigation = () => {
       
       <div className="Navigation" >
 
-        <Hamburger toggled={showNavbar} toggle={setShowNavbar} hideOutline={false} />
+        <Hamburger toggled={showNavbar} toggle={setShowNavbar} hideOutline={false} color="white"/>
         <nav className={showNav} onClick={handleShowNav}>
             <NavLink activeclassname="active"  className ="nav-item" to="/" >Accueil</NavLink>
             <NavLink activeclassname="active" className="nav-item" to="/vehicules">Nos véhicules</NavLink>
-            <NavLink activeclassname="active" className="nav-item" to="/contact">Contact</NavLink>
+            {/* <NavLink activeclassname="active" className="nav-item" to="/contact">Contact</NavLink> */}
+            <NavLink activeclassname="active" className="nav-item" to="/connexion">Connexion</NavLink>
         </nav>
 
       </div>

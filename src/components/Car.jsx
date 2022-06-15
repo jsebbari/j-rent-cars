@@ -61,7 +61,7 @@ const { marque, model, price, options, description } = props
             onClick={() => handleShowModal(true)}
             onMouseEnter={carHoverHandler}
             onMouseLeave={mouseOutCar}
-            className="car"
+            className="car text-light"
       >
         <h3 className="title-card bg-warning">
           {marque} {model}
