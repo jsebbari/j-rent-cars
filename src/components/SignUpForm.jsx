@@ -2,8 +2,13 @@ import { useRef,useState, useEffect, useContext } from 'react';
 import { Button, Alert } from 'react-bootstrap';
 import {useNavigate} from "react-router-dom"
 import { AuthContext } from '../context/AuthContext'
-import { auth, db } from '../firebase.config';
+import { db } from '../firebase.config';
 import { setDoc,doc} from "firebase/firestore"; 
+import PulseLoader  from "react-spinners/PulseLoader";
+import CircleLoader  from "react-spinners/CircleLoader";
+import BarLoader  from "react-spinners/BarLoader";
+
+
 
 
 function SignUpForm({setDisplayForm}) {
@@ -11,11 +16,12 @@ function SignUpForm({setDisplayForm}) {
 // States______________________________________
 
   const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState (false)
   const [showErrorAlert, setShowErrorAlert] = useState(null);
   const [showSuccessAlert, setShowSuccessAlert] = useState(null);
 
 
-
+// Refs_________________________________________
   const formRef =useRef()
   const emailRef = useRef()
   const passwordRef = useRef()
@@ -23,11 +29,12 @@ function SignUpForm({setDisplayForm}) {
   const nameRef = useRef()
   const firstnameRef = useRef()
 
-// Context________________________________________
+// Context_______________________________________
 
   const {signUp, currentUser} = useContext(AuthContext)
+  
 
-// Navigate_____________________________________
+// Navigate______________________________________
 
   const navigate = useNavigate()
 
@@ -36,7 +43,7 @@ function SignUpForm({setDisplayForm}) {
 
   const handleSubmitForm = async (e)=> {
       e.preventDefault()
-      
+      setLoading(true)
       if(passwordRef.current.value.length < 6){
         setShowErrorAlert("Mot de passe inférieur à 6 caractères")  
       }
@@ -55,7 +62,8 @@ function SignUpForm({setDisplayForm}) {
           const createUser = await signUp(emailRef.current.value, passwordRef.current.value)
           await setDoc(doc(db,"users",createUser.user.uid), {name: nameRef.current.value, firstName: firstnameRef.current.value, reservations:[] })
           setShowSuccessAlert("Inscription validée")
-         
+          setLoading(false)
+          console.log(currentUser);
           // navigate("/private")
           
       } catch (error) {
@@ -65,6 +73,9 @@ function SignUpForm({setDisplayForm}) {
       }      
   }
 
+  const spinner = < PulseLoader color="silver" loading={loading}  size={15} />
+
+ 
   
   return (
     < div>
@@ -77,15 +88,16 @@ function SignUpForm({setDisplayForm}) {
       </Alert>}
       
       <h1 className='text-light'>Inscription</h1>
+     
       <form className='form' onSubmit ={handleSubmitForm} ref={formRef}>
         <input type="text" name="name" ref={nameRef} placeholder='Nom' required/>
         <input type="text" name="firstName" ref={firstnameRef} placeholder='Prénom' required/>
         <input type="email" name="email" ref={emailRef} placeholder='Adresse mail' required/>
         <input type="password" name="password" ref={passwordRef} placeholder='Mot de passe' required/>
         <input type="password" name="password-confirm" ref={confirmPasswordRef} placeholder='Confirmez votre mot de passe' required />
-        <Button variant="warning" type="submit" className='w-100'>
-          S'inscrire
-        </Button>
+        {!loading? <Button variant="warning" type="submit" className='w-100'>
+         S'inscrire 
+        </Button>: spinner}
         <p className='text-warning pt-2 links-form' onClick={()=>setDisplayForm("signIn")}>Déjà inscrit ? Cliquez-ici</p>
       </form>
     </div>

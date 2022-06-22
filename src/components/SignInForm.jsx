@@ -15,7 +15,7 @@ function SignUpForm({setDisplayForm}) {
 
 // Context________________________________________
 
-  const {signIn} = useContext(AuthContext)
+  const {signIn, currentUser} = useContext(AuthContext)
 
 // Refs___________________________________________
 
@@ -28,7 +28,7 @@ function SignUpForm({setDisplayForm}) {
       try {
         const createUser = await signIn(emailRef.current.value, passwordRef.current.value)
         // navigate("/private")
-        console.log("connecté");
+        console.log("connecté", currentUser);
         
     } catch (error) {
 
