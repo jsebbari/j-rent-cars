@@ -5,8 +5,7 @@ import { AuthContext } from '../context/AuthContext'
 import { db } from '../firebase.config';
 import { setDoc,doc} from "firebase/firestore"; 
 import PulseLoader  from "react-spinners/PulseLoader";
-import CircleLoader  from "react-spinners/CircleLoader";
-import BarLoader  from "react-spinners/BarLoader";
+
 
 
 

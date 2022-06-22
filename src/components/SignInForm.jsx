@@ -3,6 +3,7 @@ import { useRef,useState, useContext } from 'react';
 import { Button, Alert } from 'react-bootstrap';
 import {useNavigate} from "react-router-dom"
 import { AuthContext } from '../context/AuthContext'
+import PulseLoader  from "react-spinners/PulseLoader";
 
 
 
@@ -12,6 +13,8 @@ function SignUpForm({setDisplayForm}) {
 
   const [user, setUser] = useState(null)
   const [showErrorAlert, setShowErrorAlert] = useState(null);
+  const [loading, setLoading] = useState(false);
+
 
 // Context________________________________________
 
@@ -25,16 +28,20 @@ function SignUpForm({setDisplayForm}) {
 // Functions________________________________________
   const handleSubmitForm = async (e)=> {
       e.preventDefault()
+      setLoading(true)
       try {
         const createUser = await signIn(emailRef.current.value, passwordRef.current.value)
         // navigate("/private")
         console.log("connecté", currentUser);
+        setLoading(false)
         
     } catch (error) {
 
       setShowErrorAlert(error.code) 
     }    
   }
+
+  const spinner = < PulseLoader color="silver" loading={loading}  size={15} />
 
   
   return (
@@ -47,9 +54,9 @@ function SignUpForm({setDisplayForm}) {
       <form className='form' onSubmit ={handleSubmitForm}>
         <input type="email" name="email" ref={emailRef} placeholder='Adresse mail' required/>
         <input type="password" name="password" ref={passwordRef} placeholder='Mot de passe' required />
-        <Button variant="warning" type="submit" className='w-100'>
+      {!loading? <Button variant="warning" type="submit" className='w-100'>
           Se connecter
-        </Button>
+        </Button>:spinner}  
         
         <p className='text-warning pt-2 links-form' onClick={()=>setDisplayForm("signUp")}>Pas encore inscrit ? Cliquez-ici</p>
       </form>
