@@ -1,24 +1,49 @@
 
-import { useRef,useState } from 'react';
-import { Button } from 'react-bootstrap';
+import { useRef,useState, useContext } from 'react';
+import { Button, Alert } from 'react-bootstrap';
+import {useNavigate} from "react-router-dom"
+import { AuthContext } from '../context/AuthContext'
+
 
 
 function SignUpForm({setDisplayForm}) {
 
+  // States______________________________________
+
   const [user, setUser] = useState(null)
+  const [showErrorAlert, setShowErrorAlert] = useState(null);
+
+// Context________________________________________
+
+  const {signIn} = useContext(AuthContext)
+
+// Refs___________________________________________
 
   const emailRef = useRef()
   const passwordRef = useRef()
 
-  const handleSubmitForm =(e)=> {
+// Functions________________________________________
+  const handleSubmitForm = async (e)=> {
       e.preventDefault()
-      setUser({email:emailRef.current.value, password: passwordRef.current.value})      
+      try {
+        const createUser = await signIn(emailRef.current.value, passwordRef.current.value)
+        // navigate("/private")
+        console.log("connecté");
+        
+    } catch (error) {
+
+      setShowErrorAlert(error.code) 
+    }    
   }
 
   
   return (
     < div >
       <h1 className='text-light'>Se connecter</h1>
+      { showErrorAlert&&<Alert  variant="danger" height="30px"  onClose ={()=>setShowErrorAlert(null)} dismissible>
+          {showErrorAlert}
+        </Alert>}
+
       <form className='form' onSubmit ={handleSubmitForm}>
         <input type="email" name="email" ref={emailRef} placeholder='Adresse mail' required/>
         <input type="password" name="password" ref={passwordRef} placeholder='Mot de passe' required />

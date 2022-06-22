@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Carousel, Spinner } from "react-bootstrap";
+import { storage } from "../firebase.config";
 import uuid from "react-uuid";
 
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
@@ -23,7 +24,6 @@ export default function CarouselCar(props) {
   const fetchImg = async (modelCar, marqueCar) => {
     const formatModelCar = withoutSpaceModelName(modelCar);
     const formatMarqueCar = withoutSpaceModelName(marqueCar);
-    const storage = getStorage();
     const imgRef = ref(storage, `img-cars/${formatModelCar}.jpg`);
     const imgInteriorRef = ref(storage,`img-cars/interior-${formatMarqueCar}.jpg`);
 
