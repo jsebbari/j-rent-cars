@@ -2,11 +2,9 @@ import { useRef,useState, useEffect, useContext } from 'react';
 import { Button, Alert } from 'react-bootstrap';
 import {useNavigate} from "react-router-dom"
 import { AuthContext } from '../context/AuthContext'
-import { db } from '../firebase.config';
+import { db } from '../firebase/firebase.config';
 import { setDoc,doc} from "firebase/firestore"; 
 import PulseLoader  from "react-spinners/PulseLoader";
-
-
 
 
 
@@ -43,11 +41,14 @@ function SignUpForm({setDisplayForm}) {
   const handleSubmitForm = async (e)=> {
       e.preventDefault()
       setLoading(true)
+
       if(passwordRef.current.value.length < 6){
+        setLoading(false)
         setShowErrorAlert("Mot de passe inférieur à 6 caractères")  
       }
 
       else if(confirmPasswordRef.current.value !== passwordRef.current.value){
+        setLoading(false)
         setShowErrorAlert("Mot de passe différent")  
       }
 
@@ -62,11 +63,12 @@ function SignUpForm({setDisplayForm}) {
           await setDoc(doc(db,"users",createUser.user.uid), {name: nameRef.current.value, firstName: firstnameRef.current.value, reservations:[] })
           setShowSuccessAlert("Inscription validée")
           setLoading(false)
+          setShowErrorAlert(null)
           console.log(currentUser);
           // navigate("/private")
           
       } catch (error) {
-
+        setLoading(false)
         setShowErrorAlert(error.code) 
       }
       }      
@@ -78,13 +80,12 @@ function SignUpForm({setDisplayForm}) {
   
   return (
     < div>
-    { showErrorAlert&&<Alert  variant="danger" height="30px"  onClose ={()=>setShowErrorAlert(null)} dismissible>
-          {showErrorAlert}
-        </Alert>}
+  
 
-    {showSuccessAlert&&<Alert  variant="success" height="30px"  onClose ={()=>setShowSuccessAlert(null)} dismissible>
+    {/* {showSuccessAlert&&<Alert  variant="success" height="30px"  onClose ={()=>setShowSuccessAlert(null)} dismissible>
           {showSuccessAlert}
-      </Alert>}
+      </Alert>} */}
+      
       
       <h1 className='text-light'>Inscription</h1>
      
@@ -94,6 +95,7 @@ function SignUpForm({setDisplayForm}) {
         <input type="email" name="email" ref={emailRef} placeholder='Adresse mail' required/>
         <input type="password" name="password" ref={passwordRef} placeholder='Mot de passe' required/>
         <input type="password" name="password-confirm" ref={confirmPasswordRef} placeholder='Confirmez votre mot de passe' required />
+        { showErrorAlert&&<p className='text-danger'>{showErrorAlert}</p>}
         {!loading? <Button variant="warning" type="submit" className='w-100'>
          S'inscrire 
         </Button>: spinner}

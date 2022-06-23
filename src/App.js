@@ -5,7 +5,7 @@ import Home from "./screens/Home";
 import Contact from "./screens/Contact";
 import ErrorPage from "./screens/ErrorPage";
 import "./App.css"
-import app from "./firebase.config"
+import app from "./firebase/firebase.config"
 import ConnectUser from "./screens/ConnectUser";
 
 function App() {

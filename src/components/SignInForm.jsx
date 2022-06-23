@@ -29,6 +29,7 @@ function SignUpForm({setDisplayForm}) {
   const handleSubmitForm = async (e)=> {
       e.preventDefault()
       setLoading(true)
+      setShowErrorAlert(null)
       try {
         const createUser = await signIn(emailRef.current.value, passwordRef.current.value)
         // navigate("/private")
@@ -36,7 +37,7 @@ function SignUpForm({setDisplayForm}) {
         setLoading(false)
         
     } catch (error) {
-
+      setLoading(false)
       setShowErrorAlert(error.code) 
     }    
   }
@@ -47,13 +48,12 @@ function SignUpForm({setDisplayForm}) {
   return (
     < div >
       <h1 className='text-light'>Se connecter</h1>
-      { showErrorAlert&&<Alert  variant="danger" height="30px"  onClose ={()=>setShowErrorAlert(null)} dismissible>
-          {showErrorAlert}
-        </Alert>}
+     
 
       <form className='form' onSubmit ={handleSubmitForm}>
         <input type="email" name="email" ref={emailRef} placeholder='Adresse mail' required/>
         <input type="password" name="password" ref={passwordRef} placeholder='Mot de passe' required />
+        { showErrorAlert&&<p className='text-danger'>{showErrorAlert}</p>}
       {!loading? <Button variant="warning" type="submit" className='w-100'>
           Se connecter
         </Button>:spinner}  

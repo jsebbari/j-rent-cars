@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Carousel, Spinner } from "react-bootstrap";
-import { storage } from "../firebase.config";
+import { storage } from "../firebase/firebase.config";
 import uuid from "react-uuid";
 
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
