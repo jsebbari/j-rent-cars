@@ -3,9 +3,7 @@ import CarouselCar from "./CarouselCar";
 import uuid from "react-uuid";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/ModalCar.css";
-
 import CalendarRange from "./CalendarRange";
-
 import { GiCarDoor, GiGps } from "react-icons/gi";
 import { FaRegSnowflake } from "react-icons/fa";
 import { MdLuggage} from "react-icons/md";

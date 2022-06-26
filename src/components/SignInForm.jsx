@@ -1,5 +1,5 @@
 
-import { useRef,useState, useContext } from 'react';
+import { useRef,useState, useContext, useEffect } from 'react';
 import { Button, Alert } from 'react-bootstrap';
 import {useNavigate} from "react-router-dom"
 import { AuthContext } from '../context/AuthContext'
@@ -25,20 +25,49 @@ function SignUpForm({setDisplayForm}) {
   const emailRef = useRef()
   const passwordRef = useRef()
 
-// Functions________________________________________
+// UseEffect______________________________________
+
+  useEffect(() => {
+  emailRef.current.focus();
+  }, [])
+  
+// Functions______________________________________
+
+const errorFirestore= (err)=>{
+
+  switch (err) {
+    case "auth/user-not-found":
+      setShowErrorAlert("Aucun utilisateur trouvé")
+      emailRef.current.style="border-bottom:1px solid red"
+      passwordRef.current.style="border-bottom:1px solid silver ";
+    break;
+
+    case "auth/wrong-password":
+      setShowErrorAlert("Mot de passe incorrect")
+      emailRef.current.style="border-bottom:1px solid silver"
+      passwordRef.current.style="border-bottom:1px solid red";
+    break;
+
+    default: setShowErrorAlert("Une erreur s'est produite")
+      
+  }
+
+}
   const handleSubmitForm = async (e)=> {
       e.preventDefault()
       setLoading(true)
       setShowErrorAlert(null)
       try {
-        const createUser = await signIn(emailRef.current.value, passwordRef.current.value)
-        // navigate("/private")
+        const logUser = await signIn(emailRef.current.value, passwordRef.current.value)
         console.log("connecté", currentUser);
         setLoading(false)
+        emailRef.current.style="border-bottom:1px solid silver"
+        passwordRef.current.style="border-bottom:1px solid silver";
+        // navigate("/private")
         
     } catch (error) {
       setLoading(false)
-      setShowErrorAlert(error.code) 
+      errorFirestore(error.code) 
     }    
   }
 
@@ -51,8 +80,8 @@ function SignUpForm({setDisplayForm}) {
      
 
       <form className='form' onSubmit ={handleSubmitForm}>
-        <input type="email" name="email" ref={emailRef} placeholder='Adresse mail' required/>
-        <input type="password" name="password" ref={passwordRef} placeholder='Mot de passe' required />
+        <input type="email" name="email" ref={emailRef} placeholder='Adresse mail*' required/>
+        <input type="password" name="password" ref={passwordRef} placeholder='Mot de passe*' required />
         { showErrorAlert&&<p className='text-danger'>{showErrorAlert}</p>}
       {!loading? <Button variant="warning" type="submit" className='w-100'>
           Se connecter

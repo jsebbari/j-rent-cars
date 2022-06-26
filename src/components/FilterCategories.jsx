@@ -31,7 +31,7 @@ const removeFilters = filterData.length !== 0 && <Dropdown.Item onClick={()=>set
   return (
 
 
-<Dropdown className='align-self-md-start align-self-sm-center mx-md-5 mt-2'>
+<Dropdown className='align-self-start  mx-3 my-3 '>
         <Dropdown.Toggle  variant="outline-warning" id="dropdown-basic" className=' d-flex justify-content-center px-4 w-auto' >
             <span className='mx-2'>Filtrer</span> 
             <GoSettings size={25} />
