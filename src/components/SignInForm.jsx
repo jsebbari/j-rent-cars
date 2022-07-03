@@ -7,7 +7,12 @@ import PulseLoader  from "react-spinners/PulseLoader";
 
 
 
+
+
 function SignUpForm({setDisplayForm}) {
+
+  // navigation____________________________________________
+  const navigate = useNavigate();
 
   // States______________________________________
 
@@ -29,6 +34,7 @@ function SignUpForm({setDisplayForm}) {
 
   useEffect(() => {
   emailRef.current.focus();
+ return currentUser&& navigate("/mon-compte")
   }, [])
   
 // Functions______________________________________
@@ -63,7 +69,7 @@ const errorFirestore= (err)=>{
         setLoading(false)
         emailRef.current.style="border-bottom:1px solid silver"
         passwordRef.current.style="border-bottom:1px solid silver";
-        // navigate("/private")
+        navigate("/mon-compte")
         
     } catch (error) {
       setLoading(false)

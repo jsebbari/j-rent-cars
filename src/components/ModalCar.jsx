@@ -26,16 +26,7 @@ export default function ModalCar(props) {
 
   const optionsList = options.map((opt) => {
     return <li
-    key={uuid()}
-    style={{
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      color: "antiquewhite",
-      padding:"0 1rem",
-      listStyleType: "none",
-    }}
-  >
+    key={uuid()} className ="option-item">
     <i>{OptionIconGenerator(opt)}</i> 
     <p>{opt}</p>
      </li>
@@ -66,36 +57,16 @@ export default function ModalCar(props) {
             <h1 className="title-style">
               {marque} {model}
             </h1>
-            <a
+            {/* <a
               href="#disponibilités"
               className="btn btn-warning
              disponibility-btn"
             >
               Vérifier les disponibilités
-            </a>
+            </a> */}
 
-            <p
-              style={{
-                color: "antiquewhite",
-                padding: "0 1rem",
-                textAlign: "start",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              
-              }}
-            >
-              {description}
-            </p>
 
-            <h3>Options principales</h3>
-            <ul
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginTop: "1rem",
-              }}
-            >
+            <ul className="options-list">
               {optionsList}
             </ul>
 

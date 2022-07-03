@@ -1,7 +1,7 @@
 export const errorsTranslate=  (err) => {
     switch (err) {
         case "auth/email-already-exists":
-            return "L'adresse mail fourni est déjà utilisé."
+            return "L'adresse mail fourni est déjà utilisée."
             break;
         case "auth/invalid-email":
             return " Adresse mail invalide."

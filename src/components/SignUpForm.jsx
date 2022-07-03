@@ -2,9 +2,10 @@ import { useRef,useState, useEffect, useContext } from 'react';
 import { Button, Alert } from 'react-bootstrap';
 import {useNavigate} from "react-router-dom"
 import { AuthContext } from '../context/AuthContext'
-import { db } from '../firebase/firebase.config';
+import { db, auth } from '../firebase/firebase.config';
 import { setDoc,doc} from "firebase/firestore"; 
 import PulseLoader  from "react-spinners/PulseLoader";
+import {sendEmailVerification} from 'firebase/auth';
 
 
 
@@ -29,6 +30,7 @@ function SignUpForm({setDisplayForm}) {
 // UseEffect______________________________________
   useEffect(() => {
     nameRef.current.focus();
+    return currentUser&& navigate("/mon-compte")
     }, [])
 
 // Context_______________________________________
@@ -97,17 +99,16 @@ const errorFirestore= (err)=>{
       }
 
       else{
+        emailRef.current.style="border-bottom:1px solid silver"
+        passwordRef.current.style="border-bottom:1px solid silver ";
+        confirmPasswordRef.current.style="border-bottom:1px solid silver";
 
         try {
           const createUser = await signUp(emailRef.current.value, passwordRef.current.value)
           await setDoc(doc(db,"users",createUser.user.uid), {name: nameRef.current.value, firstName: firstnameRef.current.value })
           setLoading(false)
           setShowErrorAlert(null)
-          emailRef.current.style="border-bottom:1px solid silver"
-          passwordRef.current.style="border-bottom:1px solid silver ";
-          confirmPasswordRef.current.style="border-bottom:1px solid silver"; 
-          console.log("inscrit",currentUser);
-          // navigate("/private")
+          navigate("/mon-compte")
           
       } catch (error) {
         setLoading(false)

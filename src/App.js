@@ -4,6 +4,7 @@ import Products from "./screens/Products";
 import Home from "./screens/Home";
 import Contact from "./screens/Contact";
 import ErrorPage from "./screens/ErrorPage";
+import PrivateHome from "./components/PrivateHome"
 import "./App.css"
 import app from "./firebase/firebase.config"
 import ConnectUser from "./screens/ConnectUser";
@@ -18,8 +19,9 @@ function App() {
             <Route exact path=  "/" element={<Home />} /> 
              <Route exact path= "vehicules" element= {<Products />} />
              <Route exact path= "contact" element= {<Contact />}/>
-             <Route exact path= "connexion" element= {<ConnectUser/>} />
-             <Route exact path= "/*" element={<ErrorPage />} />
+             <Route exact path= "connexion" element= {<ConnectUser/>}/>
+             <Route exact path= "/mon-compte" element={<PrivateHome/>}/>
+             <Route exact path= "/*" element={<ErrorPage />}/>
          </Routes>
 
 
