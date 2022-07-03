@@ -4,6 +4,7 @@ import { Button, Alert } from 'react-bootstrap';
 import {useNavigate} from "react-router-dom"
 import { AuthContext } from '../context/AuthContext'
 import PulseLoader  from "react-spinners/PulseLoader";
+import ForgetPasswordModal from './ForgetPasswordModal';
 
 
 
@@ -91,9 +92,10 @@ const errorFirestore= (err)=>{
         { showErrorAlert&&<p className='text-danger'>{showErrorAlert}</p>}
       {!loading? <Button variant="warning" type="submit" className='w-100'>
           Se connecter
-        </Button>:spinner}  
+        </Button>:spinner} 
+        <ForgetPasswordModal/> 
         
-        <p className='text-warning pt-2 links-form' onClick={()=>setDisplayForm("signUp")}>Pas encore inscrit ? Cliquez-ici</p>
+        <p className='text-warning links-form' onClick={()=>setDisplayForm("signUp")}>Pas encore inscrit ? Cliquez-ici</p>
       </form>
     </div>
   );

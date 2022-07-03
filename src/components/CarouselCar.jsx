@@ -63,9 +63,10 @@ export default function CarouselCar(props) {
     );
   });
 
+  
   return (
     <Carousel controls={false} indicators={loading ? false : true}>
-      {urls.length !==0 ? (displayImgs) : (
+      {!loading && urls.length === 2? (displayImgs) : (
         <Carousel.Item className=" d-block img-carousel w-100 d-flex justify-content-center align-items-center">
           <Spinner animation="border" variant="warning" />
         </Carousel.Item>
