@@ -113,6 +113,7 @@ const errorFirestore= (err)=>{
       } catch (error) {
         setLoading(false)
         errorFirestore(error.code)
+        console.log(error);
       }
       }      
   }
