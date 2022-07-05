@@ -1,97 +1,123 @@
-import {useState, useEffect} from "react"
+import { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../styles/ForgetPasswordModal.css"
+import "../styles/ForgetPasswordModal.css";
 import { Modal, CloseButton, Button, Form } from "react-bootstrap";
-import {sendPasswordResetEmail } from 'firebase/auth';
-import { auth } from '../firebase/firebase.config';
+import { sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "../firebase/firebase.config";
+import PulseLoader from "react-spinners/PulseLoader";
 
-import {BsCheck2Circle} from "react-icons/bs";
-
-
+import { BsCheck2Circle } from "react-icons/bs";
+import { BiErrorAlt } from "react-icons/bi";
 
 export default function ForgetPasswordModal(props) {
- 
-    const [showModal, setShowModal] = useState(false)
-    const [email, setEmail] = useState(null)
-    const [responseFirebase, setResponseFirebase] = useState(null)
-    const [errorFirebase, setErrorFirebase] = useState(null)
-  
+  const [showModal, setShowModal] = useState(false);
+  const [responseFirebase, setResponseFirebase] = useState(null);
+  const [errorFirebase, setErrorFirebase] = useState(null);
+  const [loadingForgetPassword, setLoadingForgetPassword] = useState(false);
 
-    const handleShow = (e) => {
-        setShowModal(true)
-      }
-  const closeModalButton = () => {
-    setShowModal(false);
+  const forgetPasswordEmailRef = useRef();
+
+  const successIcon = <BsCheck2Circle size={40} />;
+  const errorIcon = <BiErrorAlt size={40} />;
+  const loader = (
+    <PulseLoader color="silver" loading={loadingForgetPassword} size={15} />
+  );
+
+  const handleShow = (e) => {
+    setShowModal(true);
+  };
+
+  const errorAuth = (err) => {
+    if (err.includes("auth/user-not-found")) {
+      return setErrorFirebase(
+        "Cette adresse mail n'est associé à aucun compte"
+      );
+    }
+
+    return setErrorFirebase(
+      "Oups, une erreur s'est produite, veuillez réessayer"
+    );
   };
 
   const handleClose = () => {
-    setShowModal(false)
-    setResponseFirebase(null)
-  }
+    setShowModal(false);
+    setResponseFirebase(null);
+  };
 
   const emailChange = (e) => {
-    setErrorFirebase(null)
-    setEmail(e.target.value);
-    console.log(email);
-  }
+    setErrorFirebase(null);
+  };
 
   const submitForm = async (e) => {
-e.preventDefault()
-    await sendPasswordResetEmail(auth, email)
-  .then(() => {
-    setResponseFirebase("Email envoyé")
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    setErrorFirebase("Oups, une erreur s'est produite, veuillez réessayer")
-  });
-
-  }
-
-  const successIcon = <BsCheck2Circle size={40} />;
+    e.preventDefault();
+    setLoadingForgetPassword(true);
+    await sendPasswordResetEmail(auth, forgetPasswordEmailRef.current.value)
+      .then(() => {
+        setLoadingForgetPassword(false);
+        setResponseFirebase("Email envoyé");
+      })
+      .catch((error) => {
+        setLoadingForgetPassword(false);
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        errorAuth(errorMessage);
+      });
+  };
 
   return (
     <>
-       <p className='text-warning text-center m-0 links-form' onClick={handleShow}>Mot de passe oublié</p>
-       <Modal show={showModal} onHide={handleClose} centered= {true}>
-       <Modal.Header closeButton>
+      <p
+        className="text-warning text-center m-0 links-form"
+        onClick={handleShow}
+      >
+        Mot de passe oublié
+      </p>
+      <Modal show={showModal} onHide={handleClose} centered={true}>
+        <Modal.Header closeButton>
           <Modal.Title>Mot de passe oublié</Modal.Title>
         </Modal.Header>
-        
-       
+
         <Modal.Body className="w-100 d-flex flex-column ">
-        {!responseFirebase? 
-         <Form onSubmit={submitForm} id="forget-password-form">
-            <Form.Group className="mb-3" >
-        
-              <Form.Control
-                type="email"
-                placeholder="name@example.com"
-                autoFocus
-                onChange={emailChange}
-                required
-                className="input-forget-password"
-              
-            
-              />
-            </Form.Group>
-            {errorFirebase&&<p className="text-danger">{errorFirebase}</p>}
-          </Form>: <p className="text-success">{successIcon} {responseFirebase}</p>}
-
+          {!responseFirebase ? (
+            <Form onSubmit={submitForm} id="forget-password-form">
+              <Form.Group className="mb-3">
+                <Form.Control
+                  type="email"
+                  placeholder="name@example.com"
+                  autoFocus
+                  onChange={emailChange}
+                  required
+                  className="input-forget-password"
+                  ref={forgetPasswordEmailRef}
+                />
+              </Form.Group>
+              {errorFirebase && (
+                <p className="text-danger">
+                  {errorIcon} {errorFirebase}
+                </p>
+              )}
+            </Form>
+          ) : (
+            <p className="text-success">
+              {successIcon} {responseFirebase}
+            </p>
+          )}
         </Modal.Body>
-       
-       <Modal.Footer >
-       {!responseFirebase? <Button variant="warning" type="submit" form="forget-password-form" >
-            Valider
-          </Button>:<Button variant="secondary" onClick={handleClose}>
-            Fermer
-          </Button>}
-        </Modal.Footer> 
 
+        <Modal.Footer>
+          {loadingForgetPassword ? (
+            loader
+          ) : !responseFirebase ? (
+            <Button variant="warning" type="submit" form="forget-password-form">
+              Valider
+            </Button>
+          ) : (
+            <Button variant="secondary" onClick={handleClose}>
+              Fermer
+            </Button>
+          )}
+        </Modal.Footer>
       </Modal>
     </>
   );
 }
-
-
