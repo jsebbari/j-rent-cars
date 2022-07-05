@@ -18,7 +18,7 @@ export default function ForgetPasswordModal(props) {
   const forgetPasswordEmailRef = useRef();
 
   const successIcon = <BsCheck2Circle size={40} />;
-  const errorIcon = <BiErrorAlt size={40} />;
+  const errorIcon = <BiErrorAlt size={40}/>;
   const loader = (
     <PulseLoader color="silver" loading={loadingForgetPassword} size={15} />
   );
@@ -46,6 +46,7 @@ export default function ForgetPasswordModal(props) {
 
   const emailChange = (e) => {
     setErrorFirebase(null);
+    forgetPasswordEmailRef.current.style="border-bottom:1px solid #ffc107 !important";
   };
 
   const submitForm = async (e) => {
@@ -58,6 +59,7 @@ export default function ForgetPasswordModal(props) {
       })
       .catch((error) => {
         setLoadingForgetPassword(false);
+        forgetPasswordEmailRef.current.style="border-bottom:1px solid red !important";
         const errorCode = error.code;
         const errorMessage = error.message;
         errorAuth(errorMessage);
@@ -92,14 +94,14 @@ export default function ForgetPasswordModal(props) {
                 />
               </Form.Group>
               {errorFirebase && (
-                <p className="text-danger">
+                <p className="text-danger d-flex align-items-center">
                   {errorIcon} {errorFirebase}
                 </p>
               )}
             </Form>
           ) : (
             <p className="text-success">
-              {successIcon} {responseFirebase}
+              {successIcon} {responseFirebase} à <span className="fw-bold">{forgetPasswordEmailRef.current.value}</span>
             </p>
           )}
         </Modal.Body>

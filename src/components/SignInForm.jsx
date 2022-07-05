@@ -93,7 +93,7 @@ const errorFirestore= (err)=>{
       {!loading? <Button variant="warning" type="submit" className='w-100'>
           Se connecter
         </Button>:spinner} 
-        <p className='text-warning my-2 links-form' onClick={()=>setDisplayForm("signUp")}>Pas encore inscrit ? Cliquez-ici</p>
+        <p className='text-warning my-3 links-form' onClick={()=>setDisplayForm("signUp")}>Pas encore inscrit ? Cliquez-ici</p>
       </form>
       <ForgetPasswordModal/>
        

@@ -3,12 +3,31 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding:1rem 2rem;
+    top:1rem;
+    left:1rem;
     position:fixed;
     z-index: 100;
     
 }
+.hamburger-react{
+    background-color:#2a2e34;
+    height:50px;
+}
+.connect-user-link{
+    text-decoration: none;
+    color:#F6F6F6;
+    position:fixed;
+    right:1rem;
+    top:1rem;
+    color:#F6F6F6;
+    display: flex;
+    align-items: center;
+    height:50px;
+}
 
+.connect-user-link:hover {
+    color:#ffc107;
+    }
 
 .hide-nav {
     background-color: rgb(21, 24, 27);
@@ -60,7 +79,14 @@ font-size:1.4rem;
 
 
 @media (width <= 700px) {
+.connect-user-text{
+    display:none;
+}
 
+.user-connect-icon {
+    width:30px;
+    height:40px;
+}
     .hide-nav {
         
         width:100vw;

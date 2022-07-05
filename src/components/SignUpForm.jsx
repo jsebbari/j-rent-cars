@@ -138,7 +138,7 @@ const errorFirestore= (err)=>{
         {!loading? <Button variant="warning" type="submit" className='w-100'>
          S'inscrire 
         </Button>: spinner}
-        <p className='text-warning pt-2 links-form' onClick={()=>setDisplayForm("signIn")}>Déjà inscrit ? Cliquez-ici</p>
+        <p className='text-warning pt-3 links-form' onClick={()=>setDisplayForm("signIn")}>Déjà inscrit ? Cliquez-ici</p>
       </form>
 
     </div>
