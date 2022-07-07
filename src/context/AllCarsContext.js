@@ -7,10 +7,6 @@ export function AllCarsContextProvider({children}) {
 
     const [allCars, setAllCars] = useState([])
 
-
-  useEffect(() => {
-        console.log("effect carsContext")
-  }, [])
   
   return (
     <AllCarsContext.Provider value={{allCars, setAllCars}}>

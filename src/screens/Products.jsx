@@ -2,7 +2,7 @@ import {useState, useEffect, useContext} from "react"
 import "../styles/Products.css"
 import Car from '../components/Car'
 import {cars} from '../datas/cars'
-import uuid from "react-uuid"
+import {uid} from 'react-uid'
 import { AllCarsContext } from "../context/AllCarsContext"
 import {onSnapshot,collection } from "firebase/firestore";
 import {db} from '../firebase/firebase.config'
@@ -45,7 +45,7 @@ const mapDatas = filterData.length === 0 ? allCars : filterData;
 const listCars= mapDatas.map (car => {
     const {marque, model, price, options, description} = car
         return  <Car 
-                key={uuid()}
+                key={uid(car)} 
                 marque={marque}
                 model={model}
                 price={price}

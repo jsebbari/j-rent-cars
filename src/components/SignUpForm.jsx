@@ -34,7 +34,7 @@ function SignUpForm({setDisplayForm}) {
     }, [])
 
 // Context_______________________________________
-  const {signUp, currentUser} = useContext(AuthContext)
+  const {signUp, currentUser, updateDisplayName} = useContext(AuthContext)
 
 
 // Navigate______________________________________
@@ -106,6 +106,7 @@ const errorFirestore= (err)=>{
         try {
           const createUser = await signUp(emailRef.current.value, passwordRef.current.value)
           await setDoc(doc(db,"users",createUser.user.uid), {name: nameRef.current.value, firstName: firstnameRef.current.value })
+          await updateDisplayName(firstnameRef.current.value)
           setLoading(false)
           setShowErrorAlert(null)
           navigate("/mon-compte")
