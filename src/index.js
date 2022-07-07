@@ -6,6 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import { AuthContextProvider } from './context/AuthContext';
+import {AllCarsContextProvider} from './context/AllCarsContext'
 
 
 ReactDOM.render(
@@ -14,9 +15,11 @@ ReactDOM.render(
 
   <BrowserRouter>
       <React.StrictMode>
-        <AuthContextProvider>
-          <App />
-        </AuthContextProvider>
+        <AllCarsContextProvider>
+          <AuthContextProvider>
+            <App/>
+          </AuthContextProvider>
+        </AllCarsContextProvider>
       </React.StrictMode>
   </BrowserRouter>,
 

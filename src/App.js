@@ -8,6 +8,7 @@ import PrivateHome from "./components/PrivateHome"
 import "./App.css"
 import app from "./firebase/firebase.config"
 import ConnectUser from "./screens/ConnectUser";
+import SendCarsToFirebase from "./sendcarstofirebase/SendCarsToFirebase";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
              <Route exact path= "contact" element= {<Contact />}/>
              <Route exact path= "connexion" element= {<ConnectUser/>}/>
              <Route exact path= "/mon-compte" element={<PrivateHome/>}/>
+             <Route exact path= "/send-cars-to-firebase" element={<SendCarsToFirebase/>}/>
              <Route exact path= "/*" element={<ErrorPage />}/>
          </Routes>
 

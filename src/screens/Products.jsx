@@ -1,21 +1,34 @@
-import {useState, useEffect} from "react"
+import {useState, useEffect, useContext} from "react"
 import "../styles/Products.css"
 import Car from '../components/Car'
 import {cars} from '../datas/cars'
 import uuid from "react-uuid"
+import { AllCarsContext } from "../context/AllCarsContext"
 
 import FilterCategories from "../components/FilterCategories"
 
 
 function Products() {
 
+//useState_____________________________________________
     const [displayedData, setDisplayedData] = useState(cars)
     const [filterData, setFilterData] = useState([])
 
+//useContext___________________________________________
+    const {allCars} = useContext(AllCarsContext)
+
+//useEffect____________________________________________
+useEffect(() => {
+ console.log(allCars.length); 
+
+}, [])
+
+
+//functions_____________________________________________
+
 const mapDatas = filterData.length === 0 ? displayedData : filterData;
 
-
-   const listCars= mapDatas.map (car => {
+const listCars= mapDatas.map (car => {
         return  <Car 
                 key={uuid()}
                 marque={car.marque}
@@ -25,6 +38,7 @@ const mapDatas = filterData.length === 0 ? displayedData : filterData;
                 description={car.description}
             />
         })
+
 
     return (
         
