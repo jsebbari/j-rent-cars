@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom"
 import { AuthContext } from '../context/AuthContext'
 import { db, auth } from '../firebase/firebase.config';
 import { setDoc,doc} from "firebase/firestore"; 
-import PulseLoader  from "react-spinners/PulseLoader";
+import ScaleLoader  from "react-spinners/ScaleLoader";
 import {sendEmailVerification} from 'firebase/auth';
 
 
@@ -120,7 +120,7 @@ const errorFirestore= (err)=>{
 
 
 
-  const spinner = < PulseLoader color="silver" loading={loading}  size={15} />
+  const spinner = <ScaleLoader color="#ffc107" loading={loading}  size={15} />
 
  
   

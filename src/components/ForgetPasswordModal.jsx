@@ -4,7 +4,7 @@ import "../styles/ForgetPasswordModal.css";
 import { Modal, CloseButton, Button, Form } from "react-bootstrap";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
-import PulseLoader from "react-spinners/PulseLoader";
+import ScaleLoader from "react-spinners/ScaleLoader";
 
 import { BsCheck2Circle } from "react-icons/bs";
 import { BiErrorAlt } from "react-icons/bi";
@@ -20,7 +20,7 @@ export default function ForgetPasswordModal(props) {
   const successIcon = <BsCheck2Circle size={40} />;
   const errorIcon = <BiErrorAlt size={40}/>;
   const loader = (
-    <PulseLoader color="silver" loading={loadingForgetPassword} size={15}/>
+    <ScaleLoader color="#ffc107" loading={loadingForgetPassword} size={15}/>
   );
 
   const handleShow = (e) => {
