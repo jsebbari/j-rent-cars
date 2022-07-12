@@ -1,7 +1,6 @@
 import {useEffect, useState} from 'react'
 import "../styles/ErrorPage.css"
 import {GiCarWheel} from "react-icons/gi";
-import { Button } from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 
 

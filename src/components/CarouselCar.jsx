@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Carousel, Spinner } from "react-bootstrap";
+import { Carousel } from "react-bootstrap";
 import { storage } from "../firebase/firebase.config";
 import uuid from "react-uuid";
+import GridLoader  from "react-spinners/GridLoader";
 
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
@@ -68,7 +69,7 @@ export default function CarouselCar(props) {
     <Carousel controls={false} indicators={loading ? false : true}>
       {!loading && urls.length === 2? (displayImgs) : (
         <Carousel.Item className=" d-block img-carousel w-100 d-flex justify-content-center align-items-center">
-          <Spinner animation="border" variant="warning" />
+          <GridLoader color="#ffc107" loading={setLoading}  size={15}/>
         </Carousel.Item>
       )}
     </Carousel>

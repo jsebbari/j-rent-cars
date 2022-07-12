@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Products from "./screens/Products";
 import Home from "./screens/Home";
@@ -6,7 +6,6 @@ import Contact from "./screens/Contact";
 import ErrorPage from "./screens/ErrorPage";
 import PrivateHome from "./components/PrivateHome"
 import "./App.css"
-import app from "./firebase/firebase.config"
 import ConnectUser from "./screens/ConnectUser";
 import SendCarsToFirebase from "./sendcarstofirebase/SendCarsToFirebase";
 
