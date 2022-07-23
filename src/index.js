@@ -9,6 +9,7 @@ import { AuthContextProvider } from './context/AuthContext';
 import {AllCarsContextProvider} from './context/AllCarsContext'
 
 
+
 ReactDOM.render(
 
 
@@ -17,7 +18,7 @@ ReactDOM.render(
       <React.StrictMode>
         <AllCarsContextProvider>
           <AuthContextProvider>
-            <App/>
+              <App/>
           </AuthContextProvider>
         </AllCarsContextProvider>
       </React.StrictMode>

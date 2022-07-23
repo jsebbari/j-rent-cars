@@ -10,19 +10,23 @@ import { BsCheck2Circle } from "react-icons/bs";
 import { BiErrorAlt } from "react-icons/bi";
 
 export default function ForgetPasswordModal(props) {
+
+// useState_____________________________________________
   const [showModal, setShowModal] = useState(false);
   const [responseFirebase, setResponseFirebase] = useState(null);
   const [errorFirebase, setErrorFirebase] = useState(null);
   const [loadingForgetPassword, setLoadingForgetPassword] = useState(false);
-
+// useRef_______________________________________________
   const forgetPasswordEmailRef = useRef();
 
+// icones_______________________________________________
   const successIcon = <BsCheck2Circle size={40} />;
   const errorIcon = <BiErrorAlt size={40}/>;
   const loader = (
     <ScaleLoader color="#ffc107" loading={loadingForgetPassword} size={15}/>
   );
 
+// functions_____________________________________________
   const handleShow = (e) => {
     setShowModal(true);
   };

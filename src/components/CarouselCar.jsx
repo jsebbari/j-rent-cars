@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Carousel } from "react-bootstrap";
+import { Carousel, Placeholder } from "react-bootstrap";
 import { storage } from "../firebase/firebase.config";
 import uuid from "react-uuid";
 import GridLoader  from "react-spinners/GridLoader";
@@ -36,11 +36,9 @@ export default function CarouselCar(props) {
     });
     await getDownloadURL(imgInteriorRef).then((y) => {
       interiorImg = y;
-    });
-
-    setUrls([carImg, interiorImg]);
-
-    setLoading(false);
+    })
+     setUrls([carImg, interiorImg]);
+      setLoading(false);
   };
 
   // useEffect_____________________________________________
@@ -73,5 +71,7 @@ export default function CarouselCar(props) {
         </Carousel.Item>
       )}
     </Carousel>
+
+   
   );
 }

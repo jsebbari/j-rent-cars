@@ -7,14 +7,14 @@ function FilterCategories(props) {
 
     const mapDatas = filterData.length === 0 ? displayedData : filterData;
 
+
 function descendingOrder() {
 
     const descendingListFilter= [...mapDatas].sort((a, b) => {
         return b.price - a.price;
     });
 
-    setFilterData(descendingListFilter)
-   
+    setFilterData(descendingListFilter)  
 }
 
 function ascendingOrder() {
@@ -22,15 +22,13 @@ function ascendingOrder() {
         return a.price - b.price;
     });
 
-   
     setFilterData(ascendingListFilter)
 }
 
 
 const removeFilters = filterData.length !== 0 && <Dropdown.Item onClick={()=>setFilterData([])} className="text-danger" >Effacer filtres</Dropdown.Item>
-  return (
-
-
+  
+return (
 <Dropdown className='align-self-start  mx-3 my-3 '>
         <Dropdown.Toggle  variant="outline-warning" id="dropdown-basic" className=' d-flex justify-content-center px-4 w-auto' >
             <span className='mx-2'>Filtrer</span> 

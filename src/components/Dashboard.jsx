@@ -27,8 +27,8 @@ const [activeTab, setActiveTab] = useState(null)
 
     const itemsDashboard = [
         {icon: infoUserIcon, title: "Mes informations"},
-        {icon: calendarIcon, title: "Réservation à venir"},
-        {icon: keyCarIcon, title: "Réservation en cours"},
+        {icon: calendarIcon, title: "Réservation(s) à venir"},
+        {icon: keyCarIcon, title: "Réservation(s) en cours"},
         {icon: newBookIcon, title: "Réserver",link:"/vehicules"}
 
     ]
@@ -43,8 +43,7 @@ const [activeTab, setActiveTab] = useState(null)
        : <li key={uid(item)} onClick={()=> showInfoItem(title)} className={activeTab === title? "text-warning":null}>{icon}<p className='item-title-dashboard'>{title}</p></li>
     })
 
-    // functions_____________________________________________
-
+// functions_____________________________________________
 const logOut = async() => {
     try {
         await signOut(auth)
@@ -64,7 +63,7 @@ const logOut = async() => {
             <ul className='items-list-dashboard'>
                 {displayItems}
             </ul>
-            {showItemInfo&&<ItemInfoDashboard showItemInfo={showItemInfo} setShowItemInfo={setShowItemInfo} setActiveTab={setActiveTab}/>}
+            {showItemInfo&&<ItemInfoDashboard activeTab={activeTab} showItemInfo={showItemInfo} setShowItemInfo={setShowItemInfo} setActiveTab={setActiveTab}/>}
         </div>
     </div>
   )

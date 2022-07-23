@@ -105,7 +105,7 @@ const errorFirestore= (err)=>{
 
         try {
           const createUser = await signUp(emailRef.current.value, passwordRef.current.value)
-          await setDoc(doc(db,"users",createUser.user.uid), {name: nameRef.current.value, firstName: firstnameRef.current.value })
+          await setDoc(doc(db,"users",createUser.user.uid), {name: nameRef.current.value, firstname: firstnameRef.current.value }, { merge: true })
           await updateDisplayName(firstnameRef.current.value)
           setLoading(false)
           setShowErrorAlert(null)
@@ -126,15 +126,15 @@ const errorFirestore= (err)=>{
  
   
   return (
-    < div>
+    <div>
 
       <h1 className='text-light'>Inscription</h1>
       <form className='form' onSubmit ={handleSubmitForm} ref={formRef}>
-        <input type="text" name="name" ref={nameRef} placeholder='Nom*' required/>
-        <input type="text" name="firstName" ref={firstnameRef} placeholder='Prénom*' required/>
-        <input type="email" name="email" ref={emailRef} placeholder='Adresse mail*' required/>
-        <input type="password" name="password" ref={passwordRef} placeholder='Mot de passe*' required />
-        <input type="password" name="password-confirm" ref={confirmPasswordRef} placeholder='Confirmez votre mot de passe*' required />
+        <input className='text-light' type="text" name="name" ref={nameRef} placeholder='Nom*' required/>
+        <input className='text-light' type="text" name="firstName" ref={firstnameRef} placeholder='Prénom*' required/>
+        <input className='text-light' type="email" name="email" ref={emailRef} placeholder='Adresse mail*' required/>
+        <input className='text-light' type="password" name="password" ref={passwordRef} placeholder='Mot de passe*' required />
+        <input className='text-light' type="password" name="password-confirm" ref={confirmPasswordRef} placeholder='Confirmez votre mot de passe*' required />
         { showErrorAlert&&<p className='text-danger'>{showErrorAlert}</p>}
         {!loading? <Button variant="warning" type="submit" className='w-100'>
          S'inscrire 

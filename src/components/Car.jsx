@@ -7,7 +7,7 @@ function Car (props) {
 
 const { marque, model, price, options, description } = props
 
-// ______________ states _____________ 
+// // useState_____________________________________________
 
   const [tripDates, setTripDates] = useState({});
   const [carHover, setCarHover] = useState(false);
@@ -22,13 +22,13 @@ const { marque, model, price, options, description } = props
     setShowModal(true);
   }
   
-// ______________ effect _____________ 
+// useEffect______________________________________________
 
   useEffect(() => {
   
   }, []);
 
-// ______________ functions _____________ 
+// functions______________________________________________
 
   const changeDate = (e) => {
     setTripDates({
