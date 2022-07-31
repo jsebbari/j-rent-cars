@@ -25,7 +25,7 @@ const navigate = useNavigate();
 
 
   return (
-    <div className='bg-dark vh-100 vw-100'>
+    <div className='bg-dark min-vh-100'>
         <Dashboard/>
     </div>
   )
