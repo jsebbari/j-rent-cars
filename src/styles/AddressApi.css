@@ -1,0 +1,26 @@
+.address-api-container {
+    position: relative;
+}
+
+.result-cities {
+    position:absolute;
+    width:100%;
+    background-color: rgb(247, 247, 247);
+
+}
+
+.result-cities li {
+    list-style-type: none;
+    cursor: pointer;
+    border-bottom: #3e3e3d5c 1px solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.result-cities li:last-child {
+    border-bottom: none;
+}
+.result-cities li:hover {
+    background-color: #ffcd39;
+}
+

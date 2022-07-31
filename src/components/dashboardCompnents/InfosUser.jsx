@@ -4,6 +4,9 @@ import {Button} from 'react-bootstrap';
 import {onSnapshot,doc, setDoc  } from "firebase/firestore";
 import {db} from '../../firebase/firebase.config'
 import {AuthContext} from "../../context/AuthContext"
+import AddressApi from './AddressApi';
+import ScaleLoader  from "react-spinners/ScaleLoader";
+import Alert from 'react-bootstrap/Alert';
 
 
 function InfosUser() {
@@ -13,19 +16,20 @@ const {currentUser} =useContext(AuthContext)
 
 //useState______________________________________________
  
-    const [loadingFirebase, setLoadingFirebase] = useState(true)
+    const [loadingFetchFirestore, setLoadingFetchFirestore] = useState(true)
+    const [loadingSendFirestore, setLoadingSendFirestore] = useState(false)
+    const [successMessage, setSuccessMessage] = useState(null)
+
 
     const [name, setName] =useState("")
     const [firstname, setFirstname] =useState("")
     const [address, setAddress] =useState({
-        houseNumber:null,
-        street:null,
-        postalCode:null,
-        city:null
+        houseNumber:"",
+        street:"",
+        postalCode:"",
+        city:""
     })
-    const [houseNumber, setHouseNumber] =useState("")
-    const [postalCode, setPostalCode] =useState("")
-    const [city, setCity] =useState("")
+
     const [telephone, setTelephone] =useState("")
     
 
@@ -40,51 +44,54 @@ const {currentUser} =useContext(AuthContext)
             if (doc.data().address){ 
                 setAddress(doc.data().address)
             }
-            // setPostalCode(doc.data().postalCode)
-            // setCity(doc.data().city)
-            console.log((doc.data()))
-        });  
+            setLoadingFetchFirestore(false)
+        }); 
+      
     }
 
     useEffect(() => {
         fetchDataFromFirebase()   
+        
     }, [])
+  
+
 
     
 const updateProfil= async () => {
+    setLoadingSendFirestore(true)
     await setDoc(doc(db, "users", currentUser.uid), {
         name,
         firstname,
         address,
         telephone
       });
+      setLoadingSendFirestore(false)
+      setSuccessMessage ("Vos informations ont bien été modifiées !")
 }
 
+const displaySuccessMessage =  <Alert variant="success" >{successMessage}</Alert>
+
   return (
-    <form className='form'>
+<>
 
-    <label htmlFor="name" className='input-labels'>Nom</label>
-    <input type="text" id ="name" name="name" value ={name} onChange= {(e)=>setName(e.target.value)}/>
-   
-    <label htmlFor="firstname" className='input-labels'>Prénom</label>
-    <input type="text" id="firstname" name="firstname" value ={firstname} onChange= {(e)=>setFirstname(e.target.value)}/>
+    {loadingFetchFirestore?< ScaleLoader color="black" loading={loadingFetchFirestore}  size={15} />: <form className='form'>
+        <label htmlFor="name" className='input-labels'>Nom</label>
+        <input type="text" id ="name" name="name" value ={name} onChange= {(e)=>setName(e.target.value)}/>
     
-    <label htmlFor="address" className='input-labels'>Adresse postale</label>
-    <input type="number" placeholder='Numéro ' id="houseNumber" name="houseNumber"value ={address.houseNumber}  onChange= {(e)=>setAddress({...address, houseNumber: e.target.value})}/>
-    <input type="text" placeholder='Adresse' id="address" name="street"value ={address.street} onChange= {(e)=>setAddress({...address, street: e.target.value})}/>
-    <input type="number" placeholder='Code postal' name="postalCode"value ={address.postalCode}  onChange= {(e)=>setAddress({...address, postalCode: e.target.value})}/>
-    <input type="text" placeholder='Ville' name="city" value ={address.city} onChange={(e)=>setAddress({...address, city: e.target.value})}/>
-    
-    <label htmlFor="telephone" className='input-labels'>Téléphone</label>
-    <input type="tel" id="telephone" name="telephone"value ={telephone} onChange= {(e)=>setTelephone(e.target.value)}/>
-    
-<Button variant="warning" onClick = {updateProfil}>
-      Enregistrer les modifications
-    </Button>
-    
-
-  </form>
-
+        <label htmlFor="firstname" className='input-labels'>Prénom</label>
+        <input type="text" id="firstname" name="firstname" value ={firstname} onChange= {(e)=>setFirstname(e.target.value)}/>
+        
+        <AddressApi address={address} setAddress={setAddress}/>
+        
+        <label htmlFor="telephone" className='input-labels'>Téléphone</label>
+        <input type="tel" id="telephone" name="telephone"value ={telephone} onChange= {(e)=>setTelephone(e.target.value)}/>
+        {successMessage&&displaySuccessMessage}
+        <Button variant="warning" onClick = {updateProfil}>
+        {!loadingSendFirestore?"Enregistrer les modifications": < ScaleLoader color="black" loading={loadingSendFirestore}  size={15} />}
+        </Button>
+        
+    </form>}
+</>
     
   )
 }

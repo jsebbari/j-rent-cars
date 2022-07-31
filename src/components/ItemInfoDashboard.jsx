@@ -1,11 +1,14 @@
+
 import "../styles/ItemInfoDashboard.css"
 import { CloseButton } from 'react-bootstrap';
 import CurrentBookings from "./dashboardCompnents/CurrentBookings";
 import InfosUser from "./dashboardCompnents/InfosUser";
 import UpcomingBookings from "./dashboardCompnents/UpcomingBookings";
+import { useState } from "react";
 
 
 export default function ItemInfoDashboard({showItemInfo, setShowItemInfo, setActiveTab, activeTab}) {
+
 
   const componentToReturn = (tab) => {
     
@@ -24,15 +27,16 @@ export default function ItemInfoDashboard({showItemInfo, setShowItemInfo, setAct
   }}
   
   return (
-
+    <>
+    
       <div className='text-item'>
           <CloseButton
           className='close-btn-dashboard'
           onClick= {()=>{setShowItemInfo(false); setActiveTab(null)} }
               />
-           <h1>{activeTab}</h1>
+           <h1 className="modal-dahsboard-title">{activeTab}</h1>
            {componentToReturn(activeTab)}
       </div>
-
+    </>
   )
 }
