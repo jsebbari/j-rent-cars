@@ -1,5 +1,9 @@
-# Getting Started with Create React App
+## <a href="https://infoot.vercel.app/" target="_blank" rel="noreferrer">https://jrentcars.netlify.app/</a>
 
+<p>
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="100" height="100"/> 
+<a href="https://firebase.google.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="100" height="100"/> </a>
+</p>
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
